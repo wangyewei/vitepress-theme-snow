@@ -7,6 +7,7 @@ import HeaderArea, {
   HeaderCenterArea
 } from './HeaderArea'
 import AnimatedLogo from './AnimatedLogo'
+import HeaderContent from './HeaderContent'
 
 export default defineComponent({
   setup() {
@@ -20,7 +21,9 @@ export default defineComponent({
             <AnimatedLogo />
           </HeaderLogoArea>
 
-          <HeaderCenterArea></HeaderCenterArea>
+          <HeaderCenterArea>
+            <HeaderContent />
+          </HeaderCenterArea>
           <div class="flex size-full items-center"></div>
         </HeaderArea>
       </HeaderWithShadow>

@@ -7,7 +7,8 @@
     "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
-      "vitepress-theme-yev": ["src/index.ts"]
+      "vitepress-theme-yev": ["src/index.ts"],
+      "@/*": ["src/*"]
     },
     "resolveJsonModule": true,
     "allowJs": true,

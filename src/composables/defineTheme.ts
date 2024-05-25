@@ -1,6 +1,14 @@
+
+export type VPYevThemeNavItem = {
+  title: string,
+  path?: string,
+  children?: VPYevThemeNavItem[]
+}
 export type VPYevTheme = {
   nav: {
-    logo?: string
+    logo?: string,
+
+    items?: VPYevThemeNavItem[]
   }
 }
 
