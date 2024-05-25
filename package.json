@@ -1,0 +1,35 @@
+{
+  "packageManager": "pnpm@8.15.4",
+  "name": "vitepress-theme-yev",
+  "version": "1.0.0",
+  "description": "A modern blog theme for vitepress",
+  "type": "module",
+  "engines": {
+    "node": ">=18.19.0"
+  },
+  "exports": "./src/index.ts",
+  "types": "types/index.d.ts",
+  "files": [
+    "dist",
+    "types"
+  ],
+  "keywords": [
+    "theme",
+    "vitepress",
+    "tailwind",
+    "typescript",
+    "tsx"
+  ],
+  "author": "Yev Wang",
+  "license": "MIT",
+  "scripts": {
+    "dev:tailwind": "npx tailwindcss -i ./src/app/styles/tailwind.css -o ./src/app/styles/virtual-tailwind.css --watch"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "daisyui": "^4.11.1",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3",
+    "typescript": "^5.4.5"
+  }
+}
