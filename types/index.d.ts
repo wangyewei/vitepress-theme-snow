@@ -1,2 +1,2 @@
 export * from '../src'
-export * from '../src/composables/defineTheme'
+export * from '../src/composables'

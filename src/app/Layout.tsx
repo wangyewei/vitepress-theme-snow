@@ -1,14 +1,14 @@
-import { defineComponent } from 'vue'
-import Header from './components/Header'
+import { Fragment, defineComponent } from 'vue'
+import Header from './components/layout/Header'
 
 import './styles/index.css'
 
 export default defineComponent({
   setup() {
     return () => (
-      <div>
+      <Fragment>
         <Header />
-      </div>
+      </Fragment>
     )
   }
 })

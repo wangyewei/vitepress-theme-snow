@@ -1,7 +1,17 @@
 import { useData } from 'vitepress'
-import { VPYevTheme } from 'vitepress-theme-yev'
-import { Fragment, defineComponent, ref, computed } from 'vue'
-import MenuPopover from '../common/MenuPopover'
+import { MenuIconCollection, VPYevTheme } from 'vitepress-theme-yev'
+import {
+  Fragment,
+  defineComponent,
+  ref,
+  computed,
+  toRefs,
+  PropType,
+  watch
+} from 'vue'
+import MenuPopover from '../../common/MenuPopover'
+import usePathname from '../../../../hooks/usePathname'
+import { useEnumHeaderIcons } from '../../icons/menu-collection'
 
 export default defineComponent({
   setup() {
@@ -41,6 +51,8 @@ const NavContentDesktop = defineComponent({
       return `radial-gradient(${radius.value}px circle at ${mouseX.value}px ${mouseY.value}px, var(--spotlight-color) 0%, transparent 65%)`
     })
 
+    const pathname = usePathname()
+
     return () => (
       <nav
         onMousemove={handleMouseMove}
@@ -61,7 +73,15 @@ const NavContentDesktop = defineComponent({
         ></div>
         <div class="flex px-4 font-medium text-zinc-800 dark:text-zinc-200">
           {theme.value.nav.items?.map((item) => (
-            <NavItems title={item.title} />
+            <NavItems
+              title={item.title}
+              path={item.path}
+              icon={item.icon}
+              isActive={
+                item.path === pathname.value ||
+                item.path?.includes(`${pathname.value.replaceAll('.html', '')}`)
+              }
+            />
           ))}
         </div>
       </nav>
@@ -72,14 +92,30 @@ const NavContentDesktop = defineComponent({
 const NavItems = defineComponent({
   props: {
     title: String,
-    path: String
+    path: String,
+    isActive: Boolean,
+    icon: String as PropType<MenuIconCollection>
   },
   setup(props) {
+    const { title, path, icon } = props
+    const { isActive } = toRefs(props)
+
     return () => (
       <MenuPopover>
-        <AnimatedItem href={props.path}>
-          <span class="mr-2 flex items-center">
-            <span>{props.title}</span>
+        <AnimatedItem href={path} isActive={isActive.value}>
+          {/*
+           * TODO: support more types of icon
+           * 1. EmenuIconCollection
+           * 2. img path
+           * 3. custom component
+           */}
+          <span class="relative flex items-center">
+            {isActive.value && (
+              <span class="mr-2 flex items-center">
+                {icon && useEnumHeaderIcons(icon)}
+              </span>
+            )}
+            <span>{title}</span>
           </span>
         </AnimatedItem>
       </MenuPopover>
@@ -89,18 +125,27 @@ const NavItems = defineComponent({
 
 const AnimatedItem = defineComponent({
   props: {
-    href: {
-      type: String
-    }
+    href: String,
+    isActive: Boolean
   },
   setup(props, { slots }) {
+    const { href } = props
+    const { isActive } = toRefs(props)
+    watch(
+      () => isActive.value,
+      (v) => {
+        console.log({ v })
+      }
+    )
     return () => (
       <a
-        href={props.href}
+        href={href}
         class={[
           'relative block whitespace-nowrap px-4 py-2 transition',
-          'hover:text-accent/80',
-          'transition-[padding]'
+          [isActive.value ? 'text-accent' : 'hover:text-accent/80'],
+          [isActive.value ? 'active' : ''],
+          'transition-[padding]',
+          'cursor-pointer'
         ]}
       >
         {slots.default?.()}
