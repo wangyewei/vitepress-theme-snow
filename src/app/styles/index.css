@@ -2,5 +2,5 @@
 
 body {
   background: var(--fallback-b1, oklch(var(--b1) / 1)) !important;
-  color: var(--fallback-bc, oklch(var(--bc) / 1));
+  color: var(--fallback-bc, oklch(var(--bc) / 1)) !important;
 }
