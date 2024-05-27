@@ -12,13 +12,11 @@ export default defineComponent({
     }
   },
   setup(props, { slots }) {
-    const { triggerElement, popoverWrapperClassNames, popoverClassNames } =
-      props
+    const { popoverWrapperClassNames, popoverClassNames } = props
 
-    const TriggerWrapper = <div class="inline-block">{triggerElement?.()}</div>
     return () => (
       <Fragment>
-        {TriggerWrapper}
+        <div class="inline-block">{slots.triggerWrapper?.()}</div>
         <Portal>
           <div
             class={[

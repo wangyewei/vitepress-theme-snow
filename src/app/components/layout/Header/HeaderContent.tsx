@@ -1,16 +1,8 @@
-import { useData } from 'vitepress'
-import { MenuIconCollection, VPYevTheme } from 'vitepress-theme-yev'
-import {
-  Fragment,
-  defineComponent,
-  ref,
-  computed,
-  toRefs,
-  PropType,
-  watch
-} from 'vue'
+import { useData, useRoute } from 'vitepress'
+import { VPYevTheme } from 'vitepress-theme-yev'
+import { MenuIconCollection } from '../../icons/menu-collection'
+import { Fragment, defineComponent, ref, computed, toRefs, PropType } from 'vue'
 import MenuPopover from '../../common/MenuPopover'
-import usePathname from '../../../../hooks/usePathname'
 import { useEnumHeaderIcons } from '../../icons/menu-collection'
 
 export default defineComponent({
@@ -51,8 +43,6 @@ const NavContentDesktop = defineComponent({
       return `radial-gradient(${radius.value}px circle at ${mouseX.value}px ${mouseY.value}px, var(--spotlight-color) 0%, transparent 65%)`
     })
 
-    const pathname = usePathname()
-
     return () => (
       <nav
         onMousemove={handleMouseMove}
@@ -73,15 +63,7 @@ const NavContentDesktop = defineComponent({
         ></div>
         <div class="flex px-4 font-medium text-zinc-800 dark:text-zinc-200">
           {theme.value.nav.items?.map((item) => (
-            <NavItems
-              title={item.title}
-              path={item.path}
-              icon={item.icon}
-              isActive={
-                item.path === pathname.value ||
-                item.path?.includes(`${pathname.value.replaceAll('.html', '')}`)
-              }
-            />
+            <NavItems title={item.title} path={item.path} icon={item.icon} />
           ))}
         </div>
       </nav>
@@ -97,8 +79,12 @@ const NavItems = defineComponent({
     icon: String as PropType<MenuIconCollection>
   },
   setup(props) {
-    const { title, path, icon } = props
-    const { isActive } = toRefs(props)
+    const { title, path = '', icon } = props
+
+    const route = useRoute()
+    const isActive = computed(
+      () => route.path === path || (route.path.startsWith(path) && path !== '/')
+    )
 
     return () => (
       <MenuPopover>
@@ -131,12 +117,7 @@ const AnimatedItem = defineComponent({
   setup(props, { slots }) {
     const { href } = props
     const { isActive } = toRefs(props)
-    watch(
-      () => isActive.value,
-      (v) => {
-        console.log({ v })
-      }
-    )
+
     return () => (
       <a
         href={href}

@@ -11,10 +11,11 @@ export default defineComponent({
   },
   setup(_, { slots }) {
     return () => (
-      <FloatPopover
-        popoverWrapperClassNames="z-[19] relative"
-        triggerElement={() => slots.default?.()}
-      ></FloatPopover>
+      <FloatPopover popoverWrapperClassNames="z-[19] relative">
+        {{
+          triggerWrapper: slots.default?.()
+        }}
+      </FloatPopover>
     )
   }
 })
