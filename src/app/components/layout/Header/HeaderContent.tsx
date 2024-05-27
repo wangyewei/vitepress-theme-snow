@@ -4,6 +4,7 @@ import { MenuIconCollection } from '../../icons/menu-collection'
 import { Fragment, defineComponent, ref, computed, toRefs, PropType } from 'vue'
 import MenuPopover from '../../common/MenuPopover'
 import { useEnumHeaderIcons } from '../../icons/menu-collection'
+import { Hero } from 'hero-motion'
 
 export default defineComponent({
   setup() {
@@ -97,9 +98,13 @@ const NavItems = defineComponent({
            */}
           <span class="relative flex items-center">
             {isActive.value && (
-              <span class="mr-2 flex items-center">
+              <Hero
+                as="span"
+                layoutId="header-menu-icon"
+                class="mr-2 flex items-center"
+              >
                 {icon && useEnumHeaderIcons(icon)}
-              </span>
+              </Hero>
             )}
             <span>{title}</span>
           </span>
@@ -130,6 +135,17 @@ const AnimatedItem = defineComponent({
         ]}
       >
         {slots.default?.()}
+
+        {isActive.value && (
+          <Hero
+            as="span"
+            class={[
+              'absolute inset-x-1 -bottom-px h-px',
+              'bg-gradient-to-r from-accent/0 via-accent/70 to-accent/0'
+            ]}
+            layoutId="active-nav-item"
+          ></Hero>
+        )}
       </a>
     )
   }
