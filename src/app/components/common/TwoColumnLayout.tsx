@@ -2,7 +2,6 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
   setup(_, { slots }) {
-    console.log(slots)
     return () => (
       <div class="relative mx-auto block size-full min-w-0 max-w-[1800px] flex-col flex-wrap items-center lg:flex lg:flex-row">
         {Object.keys(slots)

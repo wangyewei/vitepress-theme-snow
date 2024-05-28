@@ -1,6 +1,6 @@
 import daisyui from 'daisyui'
 import type { CSSRuleObject, PluginAPI } from 'tailwindcss/types/config'
-
+require('./cssAsPlugin')
 
 const UIKitColors = {
   red: {
@@ -189,7 +189,9 @@ export default {
     'w-full',
 
     'text-zinc-800',
-    'dark:text-zinc-200'
+    'dark:text-zinc-200',
+
+    'mr-2'
   ],
   theme: {
     extend: {
@@ -226,7 +228,11 @@ export default {
       },
     },
   },
-  plugins: [addShortcutPlugin, daisyui]
+  plugins: [
+    addShortcutPlugin,
+    daisyui,
+    require('./src/app/styles/layer.css'),
+  ]
 }
 
 function addShortcutPlugin({ addUtilities }: PluginAPI) {

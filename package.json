@@ -33,6 +33,7 @@
     "typescript": "^5.4.5"
   },
   "dependencies": {
+    "@vueuse/motion": "^2.1.0",
     "hero-motion": "^0.2.1"
   }
 }
