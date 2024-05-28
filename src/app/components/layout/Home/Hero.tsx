@@ -15,7 +15,7 @@ export default defineComponent({
       <div class="mt-20 min-w-0 max-w-screen overflow-hidden lg:mt-[-4.5rem] lg:h-dvh lg:min-h-[800px]">
         <TwoColumnLayout>
           <Fragment>
-            <WrapperUpTransitionView>
+            <WrapperUpTransitionView className="group relative text-center leading-[4] lg:text-left [&_*]:inline-block">
               {title.template.map((t: any, i: number) => {
                 const { type } = t
                 const prevAllTextLenth = title.template
@@ -26,7 +26,7 @@ export default defineComponent({
                 // @ts-ignore
                 return h(
                   type,
-                  { key: i, class: t.class },
+                  { key: i, class: [t.class, 'whitespace-pre'] },
                   t.text && (
                     <TextUpTransitionView
                       text={t.text}
