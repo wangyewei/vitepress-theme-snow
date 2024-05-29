@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue'
+import { defineComponent, Fragment } from 'vue'
 import Header from './components/layout/Header'
 import Home from './components/layout/Home'
 import { HeroProvider } from 'hero-motion'

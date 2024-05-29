@@ -8,7 +8,7 @@ export default defineComponent({
 
     return () =>
       page.value.frontmatter?.layout === 'home' && (
-        <div>
+        <div class="lg:pt-[4.5rem]">
           <Hero />
         </div>
       )
