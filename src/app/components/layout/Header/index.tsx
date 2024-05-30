@@ -15,7 +15,7 @@ export default defineComponent({
       <HeaderWithShadow>
         <BluredBackground />
         <HeaderArea>
-          <HeaderLeftButtonArea></HeaderLeftButtonArea>
+          <HeaderLeftButtonArea />
 
           <HeaderLogoArea>
             <AnimatedLogo />
