@@ -34,6 +34,7 @@
   },
   "dependencies": {
     "@vueuse/motion": "^2.1.0",
-    "hero-motion": "^0.2.1"
+    "hero-motion": "^0.2.1",
+    "vaul-vue": "^0.1.2"
   }
 }

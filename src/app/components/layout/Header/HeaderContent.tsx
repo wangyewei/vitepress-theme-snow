@@ -1,17 +1,49 @@
 import { useData, useRoute } from 'vitepress'
 import { VPYevTheme } from 'vitepress-theme-yev'
 import { MenuIconCollection } from '../../icons/menu-collection'
-import { Fragment, defineComponent, ref, computed, toRefs, PropType } from 'vue'
+import {
+  Fragment,
+  defineComponent,
+  ref,
+  computed,
+  toRefs,
+  PropType,
+  onMounted,
+  onUnmounted,
+  type ComputedRef
+} from 'vue'
 import MenuPopover from '../../common/MenuPopover'
 import { useEnumHeaderIcons } from '../../icons/menu-collection'
 import { Hero } from 'hero-motion'
 
+export function useIsMobile(threshold: number = 720): ComputedRef<boolean> {
+  const width = ref(window.innerWidth)
+
+  const isMobile = computed(() => width.value < threshold)
+
+  const handleResize = () => {
+    width.value = window.innerWidth
+  }
+
+  onMounted(() => {
+    window.addEventListener('resize', handleResize)
+  })
+
+  onUnmounted(() => {
+    window.removeEventListener('resize', handleResize)
+  })
+
+  return isMobile
+}
+
 export default defineComponent({
   setup() {
+    const isMobile = useIsMobile() || false
+
     return () => (
       <Fragment>
         <AnimatedMenu>
-          <NavContentDesktop />
+          {!isMobile.value ? <NavContentDesktop /> : <Fragment></Fragment>}
         </AnimatedMenu>
       </Fragment>
     )

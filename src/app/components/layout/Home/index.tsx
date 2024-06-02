@@ -8,9 +8,11 @@ export default defineComponent({
 
     return () =>
       page.value.frontmatter?.layout === 'home' && (
-        <div class="lg:pt-[4.5rem]">
-          <Hero />
-        </div>
+        <main class="relative z-[1] px-4 lg:pt-[4.5rem] fill-content md:px-0">
+          <div class="mt-20 min-w-0 max-w-screen overflow-hidden lg:mt-[-4.5rem] lg:h-dvh lg:min-h-[800px]">
+            <Hero />
+          </div>
+        </main>
       )
   }
 })

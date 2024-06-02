@@ -8,6 +8,7 @@ import HeaderArea, {
 } from './HeaderArea'
 import AnimatedLogo from './AnimatedLogo'
 import HeaderContent from './HeaderContent'
+import HeaderDrawerButton from './HeaderDrawerButton'
 
 export default defineComponent({
   setup() {
@@ -15,7 +16,9 @@ export default defineComponent({
       <HeaderWithShadow>
         <BluredBackground />
         <HeaderArea>
-          <HeaderLeftButtonArea />
+          <HeaderLeftButtonArea>
+            <HeaderDrawerButton />
+          </HeaderLeftButtonArea>
 
           <HeaderLogoArea>
             <AnimatedLogo />
