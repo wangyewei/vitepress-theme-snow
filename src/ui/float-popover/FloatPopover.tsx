@@ -56,12 +56,18 @@ export default defineComponent({
       isOpen.value = true
     }
 
+    /**
+     * To ensure that `refrence` is not immediately removed from the dom tree
+     * when the mouse moves from `refrence` to `floating`, otherwise it will not
+     * slide to `floating` properly
+     */
     const closePopover = () => {
       clearTimter()
       timer.value = setTimeout(() => {
         isOpen.value = false
-      }, 200)
+      }, 100)
     }
+
     const triggerMap: Record<TriggerType, Record<string, any>> = {
       click: {
         onClick: showPopover
@@ -91,19 +97,22 @@ export default defineComponent({
       visibility: 'visible'
     }))
 
-    const TiggerWrapper = () => (
-      <div
-        role="note"
-        class={['inline-block', wrapperClassNames]}
-        {...listener.value}
-        ref={(el: HTMLDivElement) => (reference.value = el)}
-      >
-        {slots.triggerWrapper?.()}
-      </div>
-    )
+    const TiggerWrapper = defineComponent((_, { slots }) => {
+      return () => (
+        <div
+          role="note"
+          class={['inline-block', wrapperClassNames]}
+          {...listener.value}
+          ref={(el: HTMLDivElement) => (reference.value = el)}
+        >
+          {slots.default?.()}
+        </div>
+      )
+    })
     return () => (
       <Fragment>
-        <TiggerWrapper />
+        <TiggerWrapper>{slots.triggerWrapper?.()}</TiggerWrapper>
+
         {isOpen.value && (
           <Portal>
             <div
@@ -138,8 +147,13 @@ export default defineComponent({
   }
 })
 
+/**
+ * TODO
+ * The leave animation is acctually not working
+ */
 const MotionPopover = createMotion({
   initial: { translateY: '10px', opacity: 0 },
   visible: { translateY: '0px', opacity: 1 },
+  leave: { translateY: '10px', opacity: 0 },
   preset: microReboundPreset
 })

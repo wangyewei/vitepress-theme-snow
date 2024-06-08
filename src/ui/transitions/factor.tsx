@@ -5,7 +5,14 @@ import { microReboundPreset } from '../../constants/spring'
 export default function createMotion<T extends string>(
   motionParamaters: MotionVariants<T> & { preset?: Variant }
 ) {
-  const { initial, enter, visible, preset } = motionParamaters
+  const {
+    initial,
+    enter,
+    visible,
+    preset,
+    leave: leaveProp,
+    ...rest
+  } = motionParamaters
 
   return defineComponent({
     props: {
@@ -34,8 +41,10 @@ export default function createMotion<T extends string>(
             delay: delay.value,
             ...(preset || microReboundPreset)
           }
-        }
-      }
+        },
+        leave: leaveProp,
+        ...rest
+      } satisfies MotionVariants<any>
 
       onMounted(() => {
         useMotion(motionRef.value, variants)

@@ -30,7 +30,7 @@ export default defineComponent({
         {{
           triggerWrapper: slots.default?.(),
           default: () =>
-            submenu.value.length && submenu.value.map((m) => <Item {...m} />)
+            submenu.value?.length && submenu.value.map((m) => <Item {...m} />)
         }}
       </FloatPopover>
     )

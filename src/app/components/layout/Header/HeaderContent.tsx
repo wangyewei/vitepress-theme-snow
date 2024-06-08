@@ -10,8 +10,7 @@ import {
   PropType,
   onMounted,
   onUnmounted,
-  type ComputedRef,
-  watchEffect
+  type ComputedRef
 } from 'vue'
 import MenuPopover from '../../common/MenuPopover'
 import { useEnumHeaderIcons } from '../../icons/menu-collection'
@@ -37,6 +36,7 @@ export function useIsMobile(threshold: number = 720): ComputedRef<boolean> {
   return isMobile
 }
 
+const HTMLSUFFIX_REGEX = /.html$/g
 export default defineComponent({
   setup() {
     const isMobile = useIsMobile() || false
@@ -51,10 +51,8 @@ export default defineComponent({
   }
 })
 
-const AnimatedMenu = defineComponent({
-  setup(_, { slots }) {
-    return () => <div class="duration-100">{slots.default?.()}</div>
-  }
+const AnimatedMenu = defineComponent((_, { slots }) => {
+  return () => <div class="duration-100">{slots.default?.()}</div>
 })
 
 const NavContentDesktop = defineComponent({
@@ -96,14 +94,35 @@ const NavContentDesktop = defineComponent({
           style={{ background: background.value }}
         ></div>
         <div class="flex px-4 font-medium text-zinc-800 dark:text-zinc-200">
-          {theme.value.nav.items?.map((item) => (
-            <NavItems
-              title={item.title}
-              path={item.path}
-              icon={item.icon}
-              submenu={item.children}
-            />
-          ))}
+          {theme.value.nav.items?.map((item) => {
+            const route = useRoute()
+            const pathname = route.path.replaceAll(HTMLSUFFIX_REGEX, '')
+
+            const subItemActive = computed(
+              () =>
+                item.children?.findIndex(
+                  (s) => s.path === pathname || pathname.slice(1) === s.path
+                ) ?? -1
+            )
+
+            const isActive = computed(
+              () =>
+                pathname === item.path ||
+                (pathname.startsWith(item.path || '') && item.path !== '/') ||
+                subItemActive.value > -1
+            )
+
+            return (
+              <NavItems
+                title={item.title}
+                path={item.path}
+                icon={item.icon}
+                submenu={item.children}
+                isActive={isActive.value}
+                subItemActive={item.children?.[subItemActive.value]}
+              />
+            )
+          })}
         </div>
       </nav>
     )
@@ -116,15 +135,12 @@ const NavItems = defineComponent({
     path: String,
     isActive: Boolean,
     icon: String as PropType<MenuIconCollection>,
-    submenu: Array as PropType<VPYevThemeNavItem[]>
+    submenu: Array as PropType<VPYevThemeNavItem[]>,
+    subItemActive: Object as PropType<VPYevThemeNavItem>
   },
   setup(props) {
     const { title, path = '', icon, submenu } = props
-
-    const route = useRoute()
-    const isActive = computed(
-      () => route.path === path || (route.path.startsWith(path) && path !== '/')
-    )
+    const { isActive, subItemActive } = toRefs(props)
 
     return () => (
       <MenuPopover submenu={submenu}>
@@ -142,10 +158,10 @@ const NavItems = defineComponent({
                 layoutId="header-menu-icon"
                 class="mr-2 flex items-center"
               >
-                {icon && useEnumHeaderIcons(icon)}
+                {icon && useEnumHeaderIcons(subItemActive.value?.icon || icon)}
               </Hero>
             )}
-            <span>{title}</span>
+            <span>{subItemActive.value?.title || title}</span>
           </span>
         </AnimatedItem>
       </MenuPopover>
