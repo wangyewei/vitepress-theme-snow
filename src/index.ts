@@ -1,6 +1,8 @@
 import { Theme } from 'vitepress'
 import Layout from './app/Layout'
 import { MotionPlugin } from '@vueuse/motion'
+import './styles/index.css'
+
 export default {
   Layout,
   enhanceApp({ app }) {
