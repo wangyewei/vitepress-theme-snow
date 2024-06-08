@@ -1,7 +1,8 @@
 import { Teleport, defineComponent } from 'vue'
 
-export default defineComponent({
-  setup(_, { slots }) {
-    return () => <Teleport to={document.body}>{slots.default?.()}</Teleport>
-  }
-})
+type PortalProps = {
+  to?: HTMLElement
+}
+export default defineComponent<PortalProps>((props, { slots }) => () => (
+  <Teleport to={props.to || document.body}>{slots.default?.()}</Teleport>
+))

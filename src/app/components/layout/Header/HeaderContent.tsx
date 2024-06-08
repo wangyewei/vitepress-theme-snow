@@ -1,5 +1,5 @@
 import { useData, useRoute } from 'vitepress'
-import { VPYevTheme } from 'vitepress-theme-yev'
+import { VPYevTheme, VPYevThemeNavItem } from 'vitepress-theme-yev'
 import { MenuIconCollection } from '../../icons/menu-collection'
 import {
   Fragment,
@@ -10,7 +10,8 @@ import {
   PropType,
   onMounted,
   onUnmounted,
-  type ComputedRef
+  type ComputedRef,
+  watchEffect
 } from 'vue'
 import MenuPopover from '../../common/MenuPopover'
 import { useEnumHeaderIcons } from '../../icons/menu-collection'
@@ -96,7 +97,12 @@ const NavContentDesktop = defineComponent({
         ></div>
         <div class="flex px-4 font-medium text-zinc-800 dark:text-zinc-200">
           {theme.value.nav.items?.map((item) => (
-            <NavItems title={item.title} path={item.path} icon={item.icon} />
+            <NavItems
+              title={item.title}
+              path={item.path}
+              icon={item.icon}
+              submenu={item.children}
+            />
           ))}
         </div>
       </nav>
@@ -109,10 +115,11 @@ const NavItems = defineComponent({
     title: String,
     path: String,
     isActive: Boolean,
-    icon: String as PropType<MenuIconCollection>
+    icon: String as PropType<MenuIconCollection>,
+    submenu: Array as PropType<VPYevThemeNavItem[]>
   },
   setup(props) {
-    const { title, path = '', icon } = props
+    const { title, path = '', icon, submenu } = props
 
     const route = useRoute()
     const isActive = computed(
@@ -120,7 +127,7 @@ const NavItems = defineComponent({
     )
 
     return () => (
-      <MenuPopover>
+      <MenuPopover submenu={submenu}>
         <AnimatedItem href={path} isActive={isActive.value}>
           {/*
            * TODO: support more types of icon
@@ -176,7 +183,7 @@ const AnimatedItem = defineComponent({
               'bg-gradient-to-r from-accent/0 via-accent/70 to-accent/0'
             ]}
             layoutId="active-nav-item"
-          ></Hero>
+          />
         )}
       </a>
     )

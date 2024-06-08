@@ -19,7 +19,8 @@ export default function createMotion<T extends string>(
       },
       className: String
     },
-    setup(props, { slots }) {
+    emits: ['mouseenter', 'mouseover', 'mouseleave'],
+    setup(props, { slots, expose, emit }) {
       const { duration, delay } = toRefs(props)
       const { className } = props
 
@@ -39,8 +40,23 @@ export default function createMotion<T extends string>(
       onMounted(() => {
         useMotion(motionRef.value, variants)
       })
+
+      expose({
+        motionRef
+      })
+
+      const listener = {
+        mouseleave: emit('mouseleave'),
+        mouseenter: emit('mouseenter'),
+        mouseover: emit('mouseover')
+      }
+
       return () => (
-        <div ref={(r: HTMLElement) => (motionRef.value = r)} class={className}>
+        <div
+          ref={(r: HTMLElement) => (motionRef.value = r)}
+          class={className}
+          {...listener}
+        >
           {slots.default?.()}
         </div>
       )
