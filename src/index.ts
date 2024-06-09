@@ -2,10 +2,10 @@ import { Theme } from 'vitepress'
 import Layout from './app/Layout'
 import { MotionPlugin } from '@vueuse/motion'
 import './styles/index.css'
-
+import accentThemeStylesInjector from './inject/accentThemeStylesInjector'
 export default {
   Layout,
-  enhanceApp({ app }) {
+  async enhanceApp({ app }) {
     app.use(MotionPlugin)
     /**
      * `{() => component}` is too ugly to me, so I'd rather give
@@ -16,6 +16,8 @@ export default {
         return
       }
     }
+
+    await accentThemeStylesInjector()
   }
 } satisfies Theme
 

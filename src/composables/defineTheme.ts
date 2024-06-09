@@ -6,10 +6,33 @@ export type VPYevThemeNavItem = {
   children?: VPYevThemeNavItem[]
   icon?: MenuIconCollection
 }
+
+export type FooterLink = {
+  name: string
+  links: {
+    name: string
+    href: string
+  }[]
+}
+
+export type FooterTemplate = {
+  type?: string
+  text?: string
+  children?: FooterTemplate[]
+  className?: string
+}
 export type VPYevTheme = {
+  copyright?: {
+    name?: string
+    startYear?: string
+  }
   nav: {
     logo?: string
     items?: VPYevThemeNavItem[]
+  }
+  footer: {
+    links: FooterLink[]
+    template?: FooterTemplate[]
   }
 }
 

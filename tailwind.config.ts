@@ -192,7 +192,9 @@ const config: Config = {
     'text-zinc-800',
     'dark:text-zinc-200',
 
-    'mr-2'
+    'mr-2',
+
+    'gap-[4px]'
   ],
   theme: {
     extend: {
