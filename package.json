@@ -26,6 +26,8 @@
     "dev:tailwind": "npx tailwindcss -i ./src/styles/tailwind.css -o ./src/styles/virtual-tailwind.css --watch"
   },
   "devDependencies": {
+    "@types/chroma-js": "^2.4.4",
+    "@types/pngjs": "^6.0.5",
     "autoprefixer": "^10.4.19",
     "daisyui": "^4.11.1",
     "postcss": "^8.4.38",
@@ -36,7 +38,9 @@
     "@allindevelopers/vue-floating-ui": "^1.1.1",
     "@floating-ui/vue": "^1.0.6",
     "@vueuse/motion": "^2.1.0",
+    "chroma-js": "^2.4.2",
     "hero-motion": "^0.2.1",
+    "pngjs": "^7.0.0",
     "tailwind-variants": "^0.2.1",
     "vaul-vue": "^0.1.2"
   }
