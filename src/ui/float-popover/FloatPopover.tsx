@@ -2,6 +2,16 @@ import { Fragment, PropType, computed, defineComponent, ref } from 'vue'
 import Portal from '../portal/Portal'
 import createMotion from '../transitions/factor'
 import { microReboundPreset } from '../../constants/spring'
+/**
+ * Neither `@allindevelopers/vue-floating-ui` nor `@floating-ui/vue`
+ * works well.
+ *
+ * The former does not support `autoUpdate`, and the latter often
+ * renders with a bad position.
+ *
+ * both of them still in the dependencies tree, perhaps remove
+ * one in later.
+ */
 import {
   flip,
   offset,
@@ -127,10 +137,10 @@ export default defineComponent({
                 tabIndex={-1}
                 role="tooltip"
                 class={[
-                  'rounded-xl border border-zinc-400/20 p-4 outline-none backdrop-blur-lg dark:border-zinc-500/30',
+                  'rounded-xl border border-zinc-400/20 p-0 outline-none backdrop-blur-lg dark:border-zinc-500/30',
                   'bg-zinc-50/80 dark:bg-neutral-900/80',
                   'relative z-[2]',
-                  'shadow-lg p-0',
+                  'shadow-lg',
                   popoverClassNames
                 ]}
                 style={motionRefStyles.value}

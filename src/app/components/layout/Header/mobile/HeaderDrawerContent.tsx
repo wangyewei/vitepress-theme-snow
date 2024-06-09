@@ -19,12 +19,15 @@ export default defineComponent({
                 <h2>{item.title}</h2>
               </span>
             </a>
-
             {item.children && (
               <ul class="my-2 grid grid-cols-2 gap-2">
                 {item.children.map((sub) => (
                   <li key={sub.path}>
-                    <a href={sub.path} class="inline-block p-2">
+                    <a
+                      href={sub.path}
+                      class="inline-block p-2"
+                      onClick={() => (isOpen.value = false)}
+                    >
                       {sub.title}
                     </a>
                   </li>

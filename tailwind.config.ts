@@ -1,5 +1,6 @@
 import daisyui from 'daisyui'
-import type { CSSRuleObject, PluginAPI } from 'tailwindcss/types/config'
+import type { CSSRuleObject, PluginAPI, Config } from 'tailwindcss/types/config'
+import { withTV } from 'tailwind-variants/transformer'
 require('./cssAsPlugin')
 
 const UIKitColors = {
@@ -160,8 +161,8 @@ const UIKitColors = {
     }
   }
 }
-/** @type {import('tailwindcss').Config} */
-export default {
+
+const config: Config = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   safelist: [
     'font-light',
@@ -228,6 +229,63 @@ export default {
       }
     }
   },
+  daisyui: {
+    logs: false,
+    themes: [
+      {
+        light: {
+          'color-scheme': 'light',
+          // 浅葱
+          primary: '#33A6B8',
+
+          secondary: '#A8D8B9',
+
+          accent: '#33A6B8',
+
+          'accent-content': '#fafafa',
+
+          neutral: UIKitColors.grey3.light,
+
+          'base-100': UIKitColors.background.primary.light,
+          'base-content': UIKitColors.label.primary.light,
+
+          info: UIKitColors.blue.light,
+          success: UIKitColors.green.light,
+          warning: UIKitColors.orange.light,
+          error: UIKitColors.red.light,
+
+          '--rounded-btn': '1.9rem',
+          '--tab-border': '2px',
+          '--tab-radius': '.5rem'
+        }
+      },
+      {
+        dark: {
+          'color-scheme': 'dark',
+          // 桃
+          primary: '#F596AA',
+          // 洗朱
+          secondary: '#FB966E',
+          accent: '#F596AA',
+
+          neutral: UIKitColors.grey3.dark,
+
+          'base-100': UIKitColors.background.primary.dark,
+          'base-content': UIKitColors.label.primary.dark,
+
+          info: UIKitColors.blue.dark,
+          success: UIKitColors.green.dark,
+          warning: UIKitColors.orange.dark,
+          error: UIKitColors.red.dark,
+
+          '--rounded-btn': '1.9rem',
+          '--tab-border': '2px',
+          '--tab-radius': '.5rem'
+        }
+      }
+    ],
+    darkTheme: 'dark'
+  },
   plugins: [addShortcutPlugin, daisyui, require('./src/styles/layer.css')]
 }
 
@@ -262,3 +320,5 @@ function addShortcutPlugin({ addUtilities }: PluginAPI) {
   }
   addUtilities(styles)
 }
+
+export default withTV(config)

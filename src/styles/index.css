@@ -1,4 +1,5 @@
 @import './virtual-tailwind.css';
+@import './variable.css';
 
 body {
   background: var(--fallback-b1, oklch(var(--b1) / 1)) !important;
