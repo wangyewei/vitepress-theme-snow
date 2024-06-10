@@ -68,9 +68,17 @@ const Owner = defineComponent<{ name?: string; startYear?: string }>(
       )
   }
 )
+// TODO:
+// defineComponent overload to support a `props` static
+// property or pull a requeset or issue to vuejs/core to imporive DX
+//
 // @ts-ignore
 Owner.props = ['name', 'startYear']
 
+/**
+ * TODO:
+ * footer template recursion render.
+ */
 const FooterTemplate = defineComponent(() => {
   const { theme } = useData<VPYevTheme>()
   const template = theme.value.footer.template
@@ -81,7 +89,6 @@ const FooterTemplate = defineComponent(() => {
         {!!t.text && <span class={t.className}>{t.text}</span>}
 
         {t?.children?.map((_t) =>
-          //@ts-ignore
           h(_t.type, { class: _t?.className }, _t.text)
         )}
       </span>

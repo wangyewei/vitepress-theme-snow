@@ -6,18 +6,20 @@
  */
 import { inBrowser } from 'vitepress'
 import { VPYevTheme } from 'vitepress-theme-yev'
+// TODO:
+// fix the follow commented functions
 // import { hexToOklchString } from '../lib/color-tranformer'
+// import { createPngNoiseBackground } from '../lib/noise'
 import chroma from 'chroma-js'
 import Color from 'colorjs.io'
-// import { createPngNoiseBackground } from '../lib/noise'
 
 const hexToOklchString = (hex: string) => {
   return new Color(hex).oklch
 }
 
 const accentColorLight = ['#8e44ad', '#1abc9c', '#487eb0', '#00a8ff', '#182C61']
+const accentColorDark = ['#FD7272', '#D6A2E8', '#7d5fff', '#3ae374', '#ED4C67']
 
-const accentColorDark = ['#F596AA', '#A0A7D4', '#ff7b7b', '#99D8CF', '#838BC6']
 const defaultAccentColor = { light: accentColorLight, dark: accentColorDark }
 const darkBg = 'rgb(0, 2, 18)'
 const lightBg = 'rgb(250, 250, 250)'
@@ -53,7 +55,6 @@ export default async function (themeConfig: VPYevTheme) {
   }
   
   html {
-   
     --root-bg: ${chroma
       .mix(lightBg, currentAccentColorLRef, 0.05, 'rgb')
       .hex()};
@@ -61,8 +62,11 @@ export default async function (themeConfig: VPYevTheme) {
   }
 
   @media (prefers-color-scheme: dark) {
-    html {
+    :root {
       --a: ${`${hd} ${sd} ${ld}`};
+    }
+
+    html {
       --root-bg: ${chroma
         .mix(darkBg, currentAccentColorDRef, 0.12, 'rgb')
         .hex()};

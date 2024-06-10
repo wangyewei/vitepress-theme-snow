@@ -1,7 +1,9 @@
 import { defineComponent } from 'vue'
+import { useHeaderBgOpacity } from './hooks/useHeaderBgOpacity'
 
 export default defineComponent({
   setup() {
+    const { opacity } = useHeaderBgOpacity()
     return () => (
       <div
         class={[
@@ -9,7 +11,7 @@ export default defineComponent({
           'bg-themed-bg_opacity [border-bottom:1px_solid_rgb(187_187_187_/_20%)]'
         ]}
         style={{
-          opacity: 0
+          opacity: opacity.value
         }}
       ></div>
     )
