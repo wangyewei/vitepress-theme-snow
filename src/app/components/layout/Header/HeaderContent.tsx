@@ -6,6 +6,7 @@ import MenuPopover from '../../common/MenuPopover'
 import { useEnumHeaderIcons } from '../../icons/menu-collection'
 import { Hero } from 'hero-motion'
 import { useIsMobile } from '../../../../hooks/useIsMobile'
+import { useMenuOpacity } from './hooks/useHeaderBgOpacity'
 
 const HTMLSUFFIX_REGEX = /.html$/g
 export default defineComponent({
@@ -46,6 +47,8 @@ const NavContentDesktop = defineComponent({
       return `radial-gradient(${radius.value}px circle at ${mouseX.value}px ${mouseY.value}px, var(--spotlight-color) 0%, transparent 65%)`
     })
 
+    const opacity = useMenuOpacity()
+
     return () => (
       <nav
         onMousemove={handleMouseMove}
@@ -56,7 +59,8 @@ const NavContentDesktop = defineComponent({
           'shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur-md',
           'dark:from-zinc-900/70 dark:to-zinc-800/90 dark:ring-zinc-100/10',
           'group [--spotlight-color:oklch(var(--a)_/_0.12)]',
-          'pointer-events-auto duration-200'
+          'pointer-events-auto duration-200',
+          opacity.value === 0 && '!bg-none !shadow-none !ring-transparent'
         ]}
       >
         <div
