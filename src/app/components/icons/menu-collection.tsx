@@ -1,5 +1,5 @@
 import { FC } from 'src/shared'
-import { type FunctionalComponent, type SVGAttributes } from 'vue'
+import { FunctionalComponent, SVGAttributes } from 'vue'
 
 export const FaSolidCircleNotch: FunctionalComponent<SVGAttributes> = (
   props

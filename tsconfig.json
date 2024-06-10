@@ -1,4 +1,5 @@
 {
+  // "extends": "@vue/tsconfig/tsconfig.json",
   "compilerOptions": {
     "target": "esnext",
     "lib": ["ESNext", "DOM"],
@@ -12,12 +13,16 @@
     },
     "resolveJsonModule": true,
     "allowJs": true,
-    "outDir": "dist",
+    "outDir": "./dist/types/",
     "esModuleInterop": true,
     "strict": true,
     "noUnusedLocals": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "jsxImportSource": "vue",
+    "verbatimModuleSyntax": false,
+    "noImplicitAny": true
   },
+
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "*.d.ts"],
-  "exclude": ["node_modules", "dist", "node.d.ts"]
+  "exclude": ["node_modules", "dist"]
 }

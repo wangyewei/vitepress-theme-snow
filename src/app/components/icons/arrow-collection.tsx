@@ -1,5 +1,5 @@
 import { FC } from '@/shared'
-import { FunctionalComponent, SVGAttributes } from 'vue'
+import type { FunctionalComponent, SVGAttributes } from 'vue'
 
 export const FaFillArrowDown: FunctionalComponent<SVGAttributes> = (props) => (
   <svg
