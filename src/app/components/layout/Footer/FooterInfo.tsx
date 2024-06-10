@@ -61,8 +61,9 @@ const Owner = defineComponent<{ name?: string; startYear?: string }>(
     return () =>
       !!props.name && (
         <span class="inline-flex gap-[3px]">
-          <span>@ {props?.startYear || '2024'} - 至今</span>
+          <span>@ {props?.startYear || '2024'}</span>
           <a href="/">{props.name}</a>
+          <span>保留所有权利</span>
           <span>.</span>
         </span>
       )
