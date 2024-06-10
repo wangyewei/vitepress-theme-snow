@@ -6,42 +6,31 @@
  */
 import { inBrowser } from 'vitepress'
 import { VPYevTheme } from 'vitepress-theme-yev'
-import { hexToOklchString } from '../lib/color-tranformer'
-import { colorMix } from '../lib/color-mix'
+// import { hexToOklchString } from '../lib/color-tranformer'
 import chroma from 'chroma-js'
+import Color from 'colorjs.io'
 // import { createPngNoiseBackground } from '../lib/noise'
 
-const accentColorLight = [
-  // 浅葱
-  '#33A6B8',
+const hexToOklchString = (hex: string) => {
+  return new Color(hex).oklch
+}
 
-  '#FF6666',
-  '#26A69A',
-  '#fb7287',
-  '#69a6cc'
-]
+const accentColorLight = ['#8e44ad', '#1abc9c', '#487eb0', '#00a8ff', '#182C61']
 
-const accentColorDark = [
-  // 桃
-  '#F596AA',
-
-  '#A0A7D4',
-  '#ff7b7b',
-  '#99D8CF',
-  '#838BC6'
-]
+const accentColorDark = ['#F596AA', '#A0A7D4', '#ff7b7b', '#99D8CF', '#838BC6']
 const defaultAccentColor = { light: accentColorLight, dark: accentColorDark }
 const darkBg = 'rgb(0, 2, 18)'
 const lightBg = 'rgb(250, 250, 250)'
+
+/**
+ * TODO:
+ *  use the custom thme color from theme-config
+ */
 export default async function (themeConfig: VPYevTheme) {
   if (!inBrowser) return
   const tag = document.createElement('style')
   tag.setAttribute('id', 'accent-color-style')
 
-  /**
-   * TODO:
-   *  use the custom thme color from theme-config
-   */
   const { light, dark } = defaultAccentColor
 
   const lightColors = light
@@ -57,19 +46,20 @@ export default async function (themeConfig: VPYevTheme) {
 
   const [hl, sl, ll] = lightOklch
   const [hd, sd, ld] = darkOklch
-
-  // const [lightBgImage, darkBgImage] = await Promise.all([
-  //   createPngNoiseBackground(currentAccentColorLRef),
-  //   createPngNoiseBackground(currentAccentColorDRef)
-  // ])
   tag.innerHTML = `
-  html {
+
+  :root {
     --a: ${`${hl} ${sl} ${ll}`};
+  }
+  
+  html {
+   
     --root-bg: ${chroma
       .mix(lightBg, currentAccentColorLRef, 0.05, 'rgb')
       .hex()};
     background-color: var(--root-bg) !important;
   }
+
   @media (prefers-color-scheme: dark) {
     html {
       --a: ${`${hd} ${sd} ${ld}`};
