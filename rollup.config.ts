@@ -30,7 +30,8 @@ const plugins = [
   ts({
     abortOnError: false,
     useTsconfigDeclarationDir: true,
-    tsconfig: './tsconfig.rollup.json'
+    tsconfig: './tsconfig.rollup.json',
+    check: false
   })
 ]
 
