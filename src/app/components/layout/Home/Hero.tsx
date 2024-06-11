@@ -107,8 +107,7 @@ export default defineComponent({
         </div>
 
         <div
-          ref={(r: HTMLDivElement) => (sloganRef.value = r)}
-          delay={100}
+          ref={(r) => (sloganRef.value = r)}
           class={[
             'inset-x-0 bottom-0 mt-12 flex flex-col center lg:absolute lg:mt-0',
             'text-neutral-800/80 center dark:text-neutral-200/80'

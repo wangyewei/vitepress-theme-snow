@@ -16,9 +16,19 @@
     "esModuleInterop": true,
     "strict": true,
     "noUnusedLocals": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "jsxImportSource": "vue",
+    "verbatimModuleSyntax": false,
+    "noImplicitAny": true,
+    "declaration": true
   },
 
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "*.d.ts"],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "*.d.ts",
+    "./shim.d.ts"
+  ],
   "exclude": ["node_modules", "dist"]
 }

@@ -1,5 +1,6 @@
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useIsMobile } from '../../../../../hooks/useIsMobile'
+import { inBrowser } from 'vitepress'
 
 const headerShouldShowBg = ref(true)
 
@@ -14,6 +15,7 @@ export function useMenuOpacity() {
 }
 
 export function useHeaderBgOpacity() {
+  if (!inBrowser) return { opacity: ref(0) }
   const threshold = 50
   const isMobile = useIsMobile()
   const headerShouldShowBg = computed(

@@ -1,10 +1,6 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "declarationDir": "types-temp",
-    "jsxImportSource": "vue",
-    "verbatimModuleSyntax": false,
-    "noImplicitAny": true,
-    "declaration": true
+    "declarationDir": "types-temp"
   }
 }
