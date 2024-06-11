@@ -1,3 +1,4 @@
+import { h } from 'vue'
 declare global {
   namespace JSX {
     // tslint:disable no-empty-interface
@@ -8,4 +9,5 @@ declare global {
       [elem: string]: any
     }
   }
+  const h: typeof h
 }
