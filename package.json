@@ -7,8 +7,11 @@
   "engines": {
     "node": ">=18.19.0"
   },
-  "exports": "./src/index.ts",
-  "types": "types/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js",
+    "./dist/styles/index.css": "./dist/styles/index.css"
+  },
+  "types": "./dist/index.d.ts",
   "files": [
     "dist",
     "types"
@@ -24,16 +27,42 @@
   "license": "AGPL-3.0-only",
   "scripts": {
     "dev:tailwind": "npx tailwindcss -i ./src/styles/tailwind.css -o ./src/styles/virtual-tailwind.css --watch",
-    "build:css": "npx tailwindcss -i ./src/styles/tailwind.css -o ./src/styles/virtual-tailwind.css"
+    "build:tailwind": "npx tailwindcss -i ./src/styles/tailwind.css -o ./src/styles/virtual-tailwind.css",
+    "build:css": "pnpm run build:tailwind && esno ./scripts/build-css",
+    "build:prepare": "rimraf dist",
+    "build:theme": "rollup --config rollup.config.ts --configPlugin esbuild",
+    "build:clean-cache": "rimraf types-temp",
+    "build": "run-s build:prepare build:theme build:css build:clean-cache"
   },
   "devDependencies": {
+    "@babel/core": "^7.24.7",
+    "@rollup/plugin-commonjs": "^26.0.1",
+    "@rollup/plugin-inject": "^5.0.5",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-replace": "^5.0.7",
     "@types/chroma-js": "^2.4.4",
+    "@types/fs-extra": "^11.0.4",
     "@types/pngjs": "^6.0.5",
+    "@vue/babel-helper-vue-jsx-merge-props": "^1.4.0",
+    "@vue/babel-plugin-jsx": "^1.2.2",
+    "@vue/tsconfig": "^0.5.1",
     "autoprefixer": "^10.4.19",
     "daisyui": "^4.11.1",
+    "esno": "^4.7.0",
+    "fast-glob": "^3.3.2",
+    "fs-extra": "^11.2.0",
+    "npm-run-all": "^4.1.5",
     "postcss": "^8.4.38",
+    "rimraf": "^5.0.7",
+    "rollup": "^4.18.0",
+    "rollup-plugin-dts": "^6.1.1",
+    "rollup-plugin-esbuild": "^6.1.1",
+    "rollup-plugin-typescript2": "^0.36.0",
+    "rollup-plugin-vue": "^6.0.0",
     "tailwindcss": "^3.4.3",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "unplugin-vue-jsx": "^0.3.1"
   },
   "dependencies": {
     "@allindevelopers/vue-floating-ui": "^1.1.1",
