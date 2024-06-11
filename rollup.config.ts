@@ -9,15 +9,15 @@ import json from '@rollup/plugin-json'
 // @ts-ignore
 import vue from 'rollup-plugin-vue'
 import jsxUnPlugin from 'unplugin-vue-jsx/rollup'
-import inject from 'rollup-plugin-inject'
-// import dts from 'rollup-plugin-dts'
-// import typescript from 'rollup-plugin-typescript'
-import dts from 'rollup-plugin-typescript2'
+import inject from '@rollup/plugin-inject'
+import ts from 'rollup-plugin-typescript2'
+import dts from 'rollup-plugin-dts'
+
 const ROOT = fileURLToPath(import.meta.url)
 const r = (p: string) => resolve(ROOT, '..', p)
 
 const plugins = [
-  replace(),
+  replace({ preventAssignment: true }),
   commonjs(),
   nodeResolves(),
   jsxUnPlugin(),
@@ -27,7 +27,11 @@ const plugins = [
   json(),
   vue(),
   inject({ h: ['vue', 'h'] }),
-  dts({ abortOnError: false })
+  ts({
+    abortOnError: false,
+    useTsconfigDeclarationDir: true,
+    tsconfig: './tsconfig.rollup.json'
+  })
 ]
 
 const themeBuild: RollupOptions = {
@@ -41,17 +45,19 @@ const themeBuild: RollupOptions = {
   external: [/^vue(\/.+|$)/, 'vitepress']
 }
 
-// const typing: RollupOptions = {
-//   input: r('src/index.ts'),
-//   output: {
-//     format: 'esm',
-//     file: 'dist/index.d.ts'
-//   },
-//   plugins: [dts({})]
-// }
+const typing: RollupOptions = {
+  input: r('types-temp/index.d.ts'),
+  output: {
+    format: 'esm',
+    file: 'dist/index.d.ts'
+  },
+  external: [/^vue(\/.+|$)/, 'vitepress'],
+  plugins: [dts()]
+}
 
 const config = defineConfig([])
 
 config.push(themeBuild)
-// config.push(typing)
+config.push(typing)
+
 export default config

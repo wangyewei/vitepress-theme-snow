@@ -11,7 +11,7 @@
     ".": "./dist/index.js",
     "./dist/styles/index.css": "./dist/styles/index.css"
   },
-  "types": "types/index.d.ts",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist",
     "types"
@@ -31,11 +31,13 @@
     "build:css": "pnpm run build:tailwind && esno ./scripts/build-css",
     "build:prepare": "rimraf dist",
     "build:theme": "rollup --config rollup.config.ts --configPlugin esbuild",
-    "build": "run-s build:prepare build:theme build:css"
+    "build:clean-cache": "rimraf types-temp",
+    "build": "run-s build:prepare build:theme build:css build:clean-cache"
   },
   "devDependencies": {
     "@babel/core": "^7.24.7",
     "@rollup/plugin-commonjs": "^26.0.1",
+    "@rollup/plugin-inject": "^5.0.5",
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-replace": "^5.0.7",
@@ -56,14 +58,11 @@
     "rollup": "^4.18.0",
     "rollup-plugin-dts": "^6.1.1",
     "rollup-plugin-esbuild": "^6.1.1",
-    "rollup-plugin-inject": "^3.0.2",
-    "rollup-plugin-typescript": "^1.0.1",
     "rollup-plugin-typescript2": "^0.36.0",
     "rollup-plugin-vue": "^6.0.0",
     "tailwindcss": "^3.4.3",
     "typescript": "^5.4.5",
-    "unplugin-vue-jsx": "^0.3.1",
-    "vue-tsc": "^2.0.21"
+    "unplugin-vue-jsx": "^0.3.1"
   },
   "dependencies": {
     "@allindevelopers/vue-floating-ui": "^1.1.1",
