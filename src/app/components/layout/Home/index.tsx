@@ -9,8 +9,9 @@ export default defineComponent({
     return () =>
       page.value.frontmatter?.layout === 'home' && (
         <Fragment>
-          <div class="mt-20 min-w-0 max-w-screen overflow-hidden lg:mt-[-4.5rem] lg:h-dvh lg:min-h-[800px]"></div>
-          <Hero />
+          <div class="mt-20 min-w-0 max-w-screen overflow-hidden lg:mt-[-4.5rem] lg:h-dvh lg:min-h-[800px]">
+            <Hero />
+          </div>
         </Fragment>
       )
   }
