@@ -114,7 +114,7 @@ export default defineComponent({
           ]}
         >
           <small class="group flex w-[80ch] items-center justify-center text-balance">
-            当第一颗卫星飞向大气层外，我们便以为自己终有一日会征服宇宙。
+            生活在天空的一次停顿，世界依靠衰老维持平凡
           </small>
           <span class="mt-6 animate-bounce">
             <FaFillArrowDown />
