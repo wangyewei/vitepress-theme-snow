@@ -1,5 +1,6 @@
 @import './virtual-tailwind.css';
 @import './variable.css';
+@import './porse.css';
 
 body {
   background: var(--fallback-b1, oklch(var(--b1) / 1)) !important;
@@ -8,6 +9,6 @@ body {
 
 body,
 html {
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.5;
 }

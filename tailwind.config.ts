@@ -1,6 +1,7 @@
 import daisyui from 'daisyui'
 import type { CSSRuleObject, PluginAPI, Config } from 'tailwindcss/types/config'
 import { withTV } from 'tailwind-variants/transformer'
+import typography from '@tailwindcss/typography'
 require('./cssAsPlugin')
 
 const UIKitColors = {
@@ -163,7 +164,7 @@ const UIKitColors = {
 }
 
 const config: Config = {
-  content: ['./src/**/*.{js,jsx,ts,tsx}'],
+  content: ['./src/**/*.{js,jsx,ts,tsx,vue}'],
   safelist: [
     'font-light',
     'text-3xl',
@@ -288,7 +289,12 @@ const config: Config = {
     ],
     darkTheme: 'dark'
   },
-  plugins: [addShortcutPlugin, daisyui, require('./src/styles/layer.css')]
+  plugins: [
+    addShortcutPlugin,
+    typography,
+    daisyui,
+    require('./src/styles/layer.css')
+  ]
 }
 
 function addShortcutPlugin({ addUtilities }: PluginAPI) {

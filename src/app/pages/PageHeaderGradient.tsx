@@ -2,7 +2,8 @@ import { FC } from '@/shared'
 import Portal from '../../ui/portal/Portal'
 
 /**
- * TODO: --gradient should be dynamic based on accent color
+ * TODO:
+ * --gradient should be dynamic based on accent color
  */
 export default (() => (
   <Portal>

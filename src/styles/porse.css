@@ -1,0 +1,12 @@
+.prose {
+  max-width: 100% !important;
+  font-size: 1.1rem;
+
+  p {
+    @apply break-words;
+  }
+
+  figure img {
+    @apply mb-0 mt-0;
+  }
+}
