@@ -25,7 +25,7 @@ const chars = ref(Array.from(text.value))
     v-for="(char, i) in chars"
     :key="i"
     :initial="{ transform: 'translateY(10px)', opacity: 0.001 }"
-    :visible="{
+    :visibleOnce="{
       opacity: 1,
       transform: 'translateY(0px)'
     }"

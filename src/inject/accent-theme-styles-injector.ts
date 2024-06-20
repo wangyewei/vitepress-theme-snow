@@ -17,6 +17,10 @@ const hexToOklchString = (hex: string) => {
   return new Color(hex).oklch
 }
 
+const hexToColor = (hex: string) => {
+  return new Color(hex)
+}
+
 const accentColorLight = ['#8e44ad', '#1abc9c', '#487eb0', '#00a8ff', '#182C61']
 const accentColorDark = ['#FD7272', '#D6A2E8', '#7d5fff', '#3ae374', '#ED4C67']
 
@@ -32,6 +36,11 @@ export default async function (themeConfig: VPYevTheme) {
   if (!inBrowser) return
   const tag = document.createElement('style')
   tag.setAttribute('id', 'accent-color-style')
+  const originalTag = document.getElementById('accent-color-style')
+
+  if (originalTag) {
+    originalTag.remove()
+  }
 
   const { light, dark } = defaultAccentColor
 
@@ -48,6 +57,7 @@ export default async function (themeConfig: VPYevTheme) {
 
   const [hl, sl, ll] = lightOklch
   const [hd, sd, ld] = darkOklch
+
   tag.innerHTML = `
 
   :root {
@@ -59,6 +69,14 @@ export default async function (themeConfig: VPYevTheme) {
       .mix(lightBg, currentAccentColorLRef, 0.05, 'rgb')
       .hex()};
     background-color: var(--root-bg) !important;
+    --gradient-from: ${chroma
+      .mix(lightBg, currentAccentColorLRef, 0.35, 'rgb')
+      .rgb()
+      .join(' ')};
+    --gradient-to: ${chroma
+      .mix(lightBg, currentAccentColorLRef, 0.05, 'rgb')
+      .rgb()
+      .join(' ')};
   }
 
   @media (prefers-color-scheme: dark) {
@@ -70,6 +88,14 @@ export default async function (themeConfig: VPYevTheme) {
       --root-bg: ${chroma
         .mix(darkBg, currentAccentColorDRef, 0.12, 'rgb')
         .hex()};
+      --gradient-from: ${chroma
+        .mix(lightBg, currentAccentColorDRef, 0.35, 'rgb')
+        .rgb()
+        .join(' ')};
+      --gradient-to: ${chroma
+        .mix(lightBg, currentAccentColorDRef, 0.05, 'rgb')
+        .rgb()
+        .join(' ')};
     }
   }
   `

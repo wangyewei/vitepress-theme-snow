@@ -52,7 +52,6 @@ export default defineComponent({
                 .reduce((acc: number, cur: any) => {
                   return acc + (cur.text?.length || 0)
                 }, 0)
-              // @ts-ignore
               return h(
                 type,
                 { key: i, class: [t.class, 'whitespace-pre'] },

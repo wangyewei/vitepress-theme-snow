@@ -52,7 +52,6 @@ const NavContentDesktop = defineComponent({
     return () => (
       <nav
         onMousemove={handleMouseMove}
-        layout="size"
         class={[
           'relative',
           'rounded-full bg-gradient-to-b from-zinc-50/70 to-white/90',

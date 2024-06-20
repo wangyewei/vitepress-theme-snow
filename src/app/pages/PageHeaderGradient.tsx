@@ -9,7 +9,7 @@ export default (() => (
   <Portal>
     <div
       class="page-head-gradient"
-      style="--gradient-from: 143 193 139; --gradient-to: 207 228 205;"
+      // style="--gradient-from: 143 193 139; --gradient-to: 207 228 205;"
     />
   </Portal>
 )) satisfies FC

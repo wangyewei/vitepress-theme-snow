@@ -293,7 +293,8 @@ const config: Config = {
     addShortcutPlugin,
     typography,
     daisyui,
-    require('./src/styles/layer.css')
+    require('./src/styles/layer.css'),
+    require('tailwind-scrollbar')
   ]
 }
 

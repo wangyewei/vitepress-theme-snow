@@ -28,7 +28,8 @@ details summary {
 ::selection {
   background-color: theme(colors.accent);
   color: theme(colors.white) !important;
-  text-shadow: none;
+  /* TODO: Accent text-shadow */
+  /* text-shadow: none; */
 }
 
 [data-theme='dark'] ::selection {

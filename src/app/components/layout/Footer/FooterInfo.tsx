@@ -1,7 +1,7 @@
 import { FC } from '@/shared'
 import { useData } from 'vitepress'
 import { VPYevTheme } from 'vitepress-theme-yev'
-import { defineComponent } from 'vue'
+import { Fragment, defineComponent } from 'vue'
 import { FaSolidArrowRight } from '../../icons/arrow-collection'
 import { isExternal } from '../../../../shared'
 
@@ -85,13 +85,16 @@ const FooterTemplate = defineComponent(() => {
   const template = theme.value.footer.template
   return () =>
     !!template &&
-    template.map((t) => (
-      <span class={t.className}>
-        {!!t.text && <span class={t.className}>{t.text}</span>}
-
-        {t?.children?.map((_t) =>
-          h(_t.type, { class: _t?.className }, _t.text)
-        )}
-      </span>
-    ))
+    template.map((t) =>
+      h(
+        t.type,
+        { class: t.className },
+        <Fragment>
+          {!!t.text && <span class={t.className}>{t.text}</span>}
+          {t?.children?.map((_t) =>
+            h(_t.type, { class: _t?.className }, _t.text)
+          )}
+        </Fragment>
+      )
+    )
 })

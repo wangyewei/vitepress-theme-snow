@@ -1,6 +1,7 @@
 @import './virtual-tailwind.css';
 @import './variable.css';
 @import './porse.css';
+@import './scroll-bar.css';
 
 body {
   background: var(--fallback-b1, oklch(var(--b1) / 1)) !important;

@@ -1,4 +1,4 @@
-import { defineComponent, onMounted, ref, toRefs } from 'vue'
+import { ComponentInstance, defineComponent, onMounted, ref, toRefs } from 'vue'
 import { Variant, useMotion, type MotionVariants } from '@vueuse/motion'
 import { microReboundPreset } from '../../constants/spring'
 
@@ -34,7 +34,7 @@ export default function createMotion<T extends string>(
       const motionRef = ref()
       const variants = {
         initial,
-        visible: {
+        enter: {
           ...(visible || enter),
           transition: {
             duration: duration.value,
@@ -62,7 +62,7 @@ export default function createMotion<T extends string>(
 
       return () => (
         <div
-          ref={(r: HTMLElement) => (motionRef.value = r)}
+          ref={(r: ComponentInstance<any>) => (motionRef.value = r)}
           class={className}
           {...listener}
         >

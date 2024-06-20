@@ -5,7 +5,7 @@ import accentThemeStylesInjector from './inject/accent-theme-styles-injector'
 
 export default {
   Layout,
-  async enhanceApp({ app, siteData }) {
+  async enhanceApp({ app, siteData, router }) {
     app.use(MotionPlugin)
     /**
      * `{() => component}` is too ugly to me, so I'd rather give
@@ -16,7 +16,10 @@ export default {
         return
       }
     }
-    await accentThemeStylesInjector(siteData.value.themeConfig)
+
+    router.onBeforeRouteChange = async () => {
+      await accentThemeStylesInjector(siteData.value.themeConfig)
+    }
   }
 } satisfies Theme
 
