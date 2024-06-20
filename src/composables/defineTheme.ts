@@ -20,6 +20,7 @@ export type FooterTemplate = {
   text?: string
   children?: FooterTemplate[]
   className?: string
+  props?: any
 }
 export type VPYevTheme = {
   copyright?: {

@@ -1,30 +1,42 @@
 import { useData, useRoute } from 'vitepress'
 import { VPYevTheme, VPYevThemeNavItem } from 'vitepress-theme-yev'
 import { MenuIconCollection } from '../../icons/menu-collection'
-import { Fragment, defineComponent, ref, computed, toRefs, PropType } from 'vue'
+import { defineComponent, ref, computed, toRefs, PropType } from 'vue'
 import MenuPopover from '../../common/MenuPopover'
 import { useEnumHeaderIcons } from '../../icons/menu-collection'
 import { Hero } from 'hero-motion'
-import { useIsMobile } from '../../../../hooks/useIsMobile'
 import { useMenuOpacity } from './hooks/useHeaderBgOpacity'
+import { DesktopScreen } from '../../common/devices-screen'
+import useHasMetaInfo from './hooks/useHasMetaInfo'
 
 const HTMLSUFFIX_REGEX = /.html$/g
 export default defineComponent({
   setup() {
-    const isMobile = useIsMobile() || false
-
     return () => (
-      <Fragment>
-        <AnimatedMenu>
-          {!isMobile.value ? <NavContentDesktop /> : <Fragment></Fragment>}
-        </AnimatedMenu>
-      </Fragment>
+      <AnimatedMenu>
+        <DesktopScreen>
+          <NavContentDesktop />
+        </DesktopScreen>
+      </AnimatedMenu>
     )
   }
 })
 
 const AnimatedMenu = defineComponent((_, { slots }) => {
-  return () => <div class="duration-100">{slots.default?.()}</div>
+  const opacity = useMenuOpacity()
+  const hasMetaInfo = useHasMetaInfo()
+  return () => (
+    <div
+      class="duration-100"
+      style={{
+        opacity: hasMetaInfo ? opacity.value : 1,
+        visibility:
+          hasMetaInfo.value && opacity.value === 0 ? 'hidden' : 'visible'
+      }}
+    >
+      {slots.default?.()}
+    </div>
+  )
 })
 
 const NavContentDesktop = defineComponent({

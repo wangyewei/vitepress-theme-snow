@@ -88,11 +88,11 @@ const FooterTemplate = defineComponent(() => {
     template.map((t) =>
       h(
         t.type,
-        { class: t.className },
+        { class: t.className, ...(t?.props || {}) },
         <Fragment>
           {!!t.text && <span class={t.className}>{t.text}</span>}
           {t?.children?.map((_t) =>
-            h(_t.type, { class: _t?.className }, _t.text)
+            h(_t.type, { class: _t?.className, ...(_t?.props || {}) }, _t.text)
           )}
         </Fragment>
       )

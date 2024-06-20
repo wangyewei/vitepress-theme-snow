@@ -1,5 +1,5 @@
 import { FC } from '@/shared'
-import Portal from '../../ui/portal/Portal'
+import Portal from '../../../ui/portal/Portal'
 
 /**
  * TODO:

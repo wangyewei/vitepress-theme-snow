@@ -169,6 +169,8 @@ const config: Config = {
     'font-light',
     'text-3xl',
     'text-4xl',
+    'underline',
+
     'rounded',
     'p-1',
     'bg-gray-200',

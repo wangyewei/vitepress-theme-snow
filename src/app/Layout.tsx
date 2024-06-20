@@ -1,11 +1,10 @@
 import { defineComponent } from 'vue'
 import Header from './components/layout/Header'
 import Home from './components/layout/Home'
-import { NotFound404 } from './not-found'
+import NotFound404 from './not-found'
 import { HeroProvider } from 'hero-motion'
 import Footer from './components/layout/Footer'
-// import { Content } from 'vitepress'
-import Pages from './pages'
+import Modules from './modules/basic-markdown'
 
 /**
  * TODO:
@@ -23,7 +22,7 @@ export default defineComponent({
         <main class="relative z-[1] px-4 pt-[4.5rem] fill-content md:px-0">
           <Home />
           <NotFound404 />
-          <Pages />
+          <Modules />
         </main>
         <Footer />
       </HeroProvider>

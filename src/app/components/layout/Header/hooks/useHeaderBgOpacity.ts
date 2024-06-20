@@ -8,6 +8,11 @@ export const useHeaderShouldShowBg = () => {
   return computed(() => headerShouldShowBg.value)
 }
 
+export const useShouldShowMeta = () => {
+  const { opacity } = useHeaderBgOpacity()
+  return computed(() => opacity.value >= 1)
+}
+
 export function useMenuOpacity() {
   const { opacity } = useHeaderBgOpacity()
 
@@ -16,7 +21,7 @@ export function useMenuOpacity() {
 
 export function useHeaderBgOpacity() {
   if (!inBrowser) return { opacity: ref(0) }
-  const threshold = 50
+  const threshold = 155
   const isMobile = useIsMobile()
   const headerShouldShowBg = computed(
     () => useHeaderShouldShowBg().value || isMobile.value

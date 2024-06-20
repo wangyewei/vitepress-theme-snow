@@ -9,6 +9,7 @@ import HeaderArea, {
 import AnimatedLogo from './AnimatedLogo'
 import HeaderContent from './HeaderContent'
 import HeaderDrawerButton from './HeaderDrawerButton'
+import HeaderMetaInfo from './HeaderMetaInfo'
 
 export default defineComponent({
   setup() {
@@ -26,6 +27,7 @@ export default defineComponent({
 
           <HeaderCenterArea>
             <HeaderContent />
+            <HeaderMetaInfo />
           </HeaderCenterArea>
           <div class="flex size-full items-center"></div>
         </HeaderArea>

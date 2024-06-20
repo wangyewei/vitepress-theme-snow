@@ -1,10 +1,9 @@
 import { defineComponent } from 'vue'
 import PageHeaderGradient from './PageHeaderGradient'
 import CheckWeatherIsPage from './CheckWeatherIsPage'
-
 import pageTitleFactor from './internal/page-title-factor'
-
 import { Content } from 'vitepress'
+import { BottomToUpTransitionView } from '../../../ui/transitions'
 
 export default defineComponent(() => {
   const { PageTitle, PageSubTitle } = pageTitleFactor()
@@ -18,11 +17,17 @@ export default defineComponent(() => {
           <div class="relative w-full min-w-0">
             <article class="prose">
               <header class="mb-8">
-                <PageTitle />
-                <PageSubTitle />
+                <BottomToUpTransitionView>
+                  <PageTitle />
+                </BottomToUpTransitionView>
+                <BottomToUpTransitionView delay={300}>
+                  <PageSubTitle />
+                </BottomToUpTransitionView>
               </header>
 
-              <Content />
+              <BottomToUpTransitionView delay={600}>
+                <Content />
+              </BottomToUpTransitionView>
             </article>
           </div>
         </div>
