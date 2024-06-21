@@ -4,6 +4,7 @@ import CheckWeatherIsPage from './CheckWeatherIsPage'
 import pageTitleFactor from './internal/page-title-factor'
 import { Content } from 'vitepress'
 import { BottomToUpTransitionView } from '../../../ui/transitions'
+import Signature from './internal/Signature'
 
 export default defineComponent(() => {
   const { PageTitle, PageSubTitle } = pageTitleFactor()
@@ -30,6 +31,13 @@ export default defineComponent(() => {
               </BottomToUpTransitionView>
             </article>
           </div>
+        </div>
+        {/*
+         * TODO:
+         * Receive a Signature component from vitepress-end
+         */}
+        <div class="signature-animated my-2 flex w-full justify-end size-[64px]">
+          <Signature />
         </div>
       </div>
     </CheckWeatherIsPage>

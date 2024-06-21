@@ -38,4 +38,35 @@
       transform: translateY(0);
     }
   }
+
+  .signature-animated path {
+    stroke-dasharray: 2400;
+    stroke-dashoffset: 2400;
+    fill: transparent;
+    animation: drawSignature 8s linear infinite both;
+    stroke-width: 2px;
+    stroke: theme(colors.base-content);
+  }
+
+  @keyframes drawSignature {
+    0% {
+      stroke-dashoffset: 2400;
+    }
+
+    15% {
+      fill: transparent;
+    }
+
+    35%,
+    75% {
+      stroke-dashoffset: 0;
+      fill: theme(colors.base-content);
+    }
+
+    90%,
+    100% {
+      stroke-dashoffset: 2400;
+      fill: transparent;
+    }
+  }
 }
