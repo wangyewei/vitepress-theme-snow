@@ -12,16 +12,16 @@
 
 <p align="center">
    <span>
-      <img src="https://img.shields.io/badge/vuejs-%2335495e.svg?style=for-the-badge&logo=vuedotjs&logoColor=%234FC08D"/>
+      <img src="https://img.shields.io/badge/vuejs-%2335495e.svg?style=Plastic&logo=vuedotjs&logoColor=%234FC08D"/>
    </span>
    <span>
-      <img src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white"/>
+      <img src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=Plastice&logo=typescript&logoColor=white"/>
    </span>
    <span>
-      <img src="https://img.shields.io/badge/RollupJS-ef3335?style=for-the-badge&logo=rollup.js&logoColor=white"/>
+      <img src="https://img.shields.io/badge/RollupJS-ef3335?style=Plastic&logo=rollup.js&logoColor=white"/>
     </span>
    <span>
-      <img src="https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white"/>
+      <img src="https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=Plastic&logo=tailwind-css&logoColor=white"/>
     </span>
 </p>
 
