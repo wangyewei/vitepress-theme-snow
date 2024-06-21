@@ -1,3 +1,4 @@
+
 <p align="center">
   <h2 align="center">Vitepress Theme Snow ❄</h2>
   <br />
@@ -5,23 +6,13 @@
     A mordern blog theme for Vitepress.
     <br />
     <small align="center"><a href="https://github.com/innei/Shiro">Shiro</a> Theme Style</small>
-    <br />
-    <br />
   </p>
 </p>
 
-
-<p align="center">  
-  <h3 align="center">Core Features</h3>
-  <p align="center">
-  Dark Mode
-  | 
-  Responsive
-  |
-  Smooth Animation
-  </p>
+<p align="center">
+ <h3 align="center">🚧Work in Progress🚧</h3>
+ <p align="center">Cannot be used in production yet.</p>
 </p>
-
 
 <p align="center">
    <span>
@@ -37,6 +28,18 @@
       <img src="https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=Plastic&logo=tailwind-css&logoColor=white"/>
     </span>
 </p>
+
+<p align="center">  
+  <p align="center">
+  Dark Mode
+  | 
+  Responsive
+  |
+  Smooth Animation
+  </p>
+</p>
+
+
 
 <p align="center"> English | <del><a href="./readme_cn.md">简体中文</a></del></p>
 
