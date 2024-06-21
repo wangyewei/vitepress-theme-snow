@@ -1,4 +1,5 @@
 import { defineComponent } from 'vue'
+import { DesktopScreen } from '../../common/devices-screen'
 
 export default defineComponent({
   setup(_, { slots }) {
@@ -38,11 +39,13 @@ export const HeaderLogoArea = defineComponent({
 export const HeaderCenterArea = defineComponent({
   setup(_, { slots }) {
     return () => (
-      <div class="flex min-w-0 grow">
-        <div class="relative flex grow items-center justify-center">
-          {slots.default?.()}
+      <DesktopScreen>
+        <div class="flex min-w-0 grow">
+          <div class="relative flex grow items-center justify-center">
+            {slots.default?.()}
+          </div>
         </div>
-      </div>
+      </DesktopScreen>
     )
   }
 })

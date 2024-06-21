@@ -1,11 +1,18 @@
 import { useData } from 'vitepress'
 import { ComputedRef, computed } from 'vue'
-
+import { useHeaderBgOpacity } from './useHeaderBgOpacity'
 export function useHasMetaInfo(): ComputedRef<boolean> {
   const { page } = useData()
   const hasMetaInfo = computed(() => page.value.frontmatter?.meta === true)
 
   return hasMetaInfo
+}
+
+export function useShouldShowMeta() {
+  const { opacity } = useHeaderBgOpacity()
+  const hasMeta = useHasMetaInfo()
+
+  return computed(() => opacity.value >= 1 && hasMeta.value)
 }
 
 export function useMetaInfo() {

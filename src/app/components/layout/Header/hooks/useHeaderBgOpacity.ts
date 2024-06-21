@@ -8,11 +8,6 @@ export const useHeaderShouldShowBg = () => {
   return computed(() => headerShouldShowBg.value)
 }
 
-export const useShouldShowMeta = () => {
-  const { opacity } = useHeaderBgOpacity()
-  return computed(() => opacity.value >= 1)
-}
-
 export function useMenuOpacity() {
   const { opacity } = useHeaderBgOpacity()
 
