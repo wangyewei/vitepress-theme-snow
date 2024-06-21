@@ -1,16 +1,16 @@
 <p align="center">
-  <h2 align="center">Vitepress Theme Snow ❄</h2>
+  <h2 align="center">Vitepress 主题 Snow ❄</h2>
   <br />
   <p align="center">
-    A mordern blog theme for Vitepress.
+    一个现代的 Vitepress 博客主题。
     <br />
-    <small align="center"><a href="https://github.com/innei/Shiro">Shiro</a> Theme Style</small>
+    <small align="center"><a href="https://github.com/innei/Shiro">Shiro</a> 主题样式</small>
   </p>
 </p>
 
 <p align="center">
- <h3 align="center">🚧Work in Progress🚧</h3>
- <p align="center">Cannot be used in production yet.</p>
+ <h3 align="center">🚧建设中🚧</h3>
+ <p align="center">尚不能在生产环境中使用。</p>
 </p>
 
 <p align="center">
@@ -30,17 +30,17 @@
 
 <p align="center">  
   <p align="center">
-  Dark Mode
+  深色模式
   | 
-  Responsive
+  响应式
   |
-  Smooth Animation
+  流畅动画
   </p>
 </p>
 
-<p align="center"> English| <a href="./README_ZH.md">简体中文</a></p>
+<p align="center"> <a href="./README.md">English</a> | 简体中文</p>
 
-## Installation
+## 安装
 
 ```sh
 pnpm i vitepress vitepress-theme-snow
@@ -48,15 +48,15 @@ pnpm i vitepress vitepress-theme-snow
 
 ## Quick Start
 
-> It is recommended that you have prior knowledge of [VitePress](https://vitepress.dev/guide/getting-started).
+> 建议您先了解 [VitePress](https://vitepress.dev/guide/getting-started).
 
-1. run a command to init vitepress
+1. 运行命令初始化 vitepress:
 
 ```sh
 pnpm vitepress init
 ```
 
-2. select the **Custom Theme** when you see the follow questions:
+2. 当看到以下问题时选择 **Custom Theme** :
 
 ```sh
 ┌  Welcome to VitePress!
@@ -77,7 +77,7 @@ pnpm vitepress init
 └
 ```
 
-3. create a `index.ts` under the `.vitepress/theme`
+3. 在 `.vitepress/theme` 下创建 `index.ts`
 
 ```typescript
 import type { Theme } from 'vitepress'
@@ -88,9 +88,9 @@ export default {
 } satisfies Theme
 ```
 
-4. Learn more in ~~[documentation](#)~~
+4.了解更多内容请访问 ~~[文档](#)~~
 
-## Short-term Goal
+## 短期目标
 
 - Home Lauout
   - [ ] TimeLine Section
@@ -102,16 +102,16 @@ export default {
   - [ ] Page context footer
 - ...
 
-## Screen Capture
+## 屏幕截图
 
 <img alt="image" src="https://github.com/wangyewei/vitepress-theme-snow/assets/49926816/fd7a8747-9765-4fa8-8121-b93f60ae9225">
 
-## Thanks
+## 致谢
 
-Most of the code comes from [Shiro](https://github.com/innei/Shiro)
+大部分代码来自 [Shiro](https://github.com/innei/Shiro)
 
 ## Lisense
 
-&copy; 2024 Yev Wang
+&copy; 2024 王野未
 
-Licensed under the [AGPLv3 license.](https://github.com/wangyewei/vitepress-theme-yev/blob/main/LICENSE)
+根据 [AGPLv3 许可证](https://github.com/wangyewei/vitepress-theme-yev/blob/main/LICENSE)进行许可。
