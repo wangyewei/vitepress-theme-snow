@@ -10,6 +10,19 @@
   </p>
 </p>
 
+
+<p align="center">  
+  <h3 align="center">Core Features</h3>
+  <p align="center">
+  Dark Mode
+  | 
+  Responsive
+  |
+  Smooth Animation
+  </p>
+</p>
+
+
 <p align="center">
    <span>
       <img src="https://img.shields.io/badge/vuejs-%2335495e.svg?style=Plastic&logo=vuedotjs&logoColor=%234FC08D"/>
@@ -25,13 +38,7 @@
     </span>
 </p>
 
-<p align="center">
- <h3 align="center">🚧Work in Progress🚧</h3>
- <p align="center">Cannot be used in production yet.</p>
-</p>
-
-<h3 align="center">Languages</h3>
-<p align="center"> English | <a href="./readme_cn.md">简体中文</a></p>
+<p align="center"> English | <del><a href="./readme_cn.md">简体中文</a></del></p>
 
 ## Installation
 
@@ -81,6 +88,8 @@ export default {
 
 ```
 
+4. Learn more in ~~[documentation](#)~~
+
 ## Short-term Goal
 
 - Home Lauout
@@ -92,6 +101,9 @@ export default {
   + [ ] Slidebar outline
   + [ ] Page context footer
 - ...
+
+## Screen Capture
+<img alt="image" src="https://github.com/wangyewei/vitepress-theme-snow/assets/49926816/fd7a8747-9765-4fa8-8121-b93f60ae9225">
 
 ## Thanks
 
