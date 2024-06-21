@@ -4,7 +4,7 @@
   <p align="center">
     A mordern blog theme for Vitepress.
     <br />
-    <small align="center"><a href="https://github.com/innei/Shiro">Shiro</a> Theme rewrite with Vue</small>
+    <small align="center"><a href="https://github.com/innei/Shiro">Shiro</a> Theme Style</small>
     <br />
     <br />
   </p>
@@ -30,11 +30,26 @@
  <p align="center">Cannot be used in production yet.</p>
 </p>
 
+<h3 align="center">Languages</h3>
+<p align="center"> English | <a href="./readme_cn.md">简体中文</a></p>
+
 ## Installation
 
 ```sh
 pnpm i vitepress vitepress-theme-snow
 ```
+
+## Short-term Goal
+
+- Home Lauout
+  + [ ] TimeLine Section
+  + [ ] Quick-link
+- Basic Markdown Layout
+  + [ ] Last update time
+  + [ ] Previous and next pagination
+  + [ ] Slidebar outline
+  + [ ] Page context footer
+- ...
 
 ## Thanks
 
