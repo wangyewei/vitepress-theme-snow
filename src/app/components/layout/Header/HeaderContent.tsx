@@ -7,7 +7,7 @@ import { useEnumHeaderIcons } from '../../icons/menu-collection'
 import { Hero } from 'hero-motion'
 import { useMenuOpacity } from './hooks/useHeaderBgOpacity'
 import { DesktopScreen } from '../../common/devices-screen'
-import useHasMetaInfo from './hooks/useHasMetaInfo'
+import { useHasMetaInfo } from './hooks/useMetaInfo'
 
 const HTMLSUFFIX_REGEX = /.html$/g
 export default defineComponent({
@@ -29,7 +29,7 @@ const AnimatedMenu = defineComponent((_, { slots }) => {
     <div
       class="duration-100"
       style={{
-        opacity: hasMetaInfo ? opacity.value : 1,
+        opacity: hasMetaInfo.value ? opacity.value : 1,
         visibility:
           hasMetaInfo.value && opacity.value === 0 ? 'hidden' : 'visible'
       }}
