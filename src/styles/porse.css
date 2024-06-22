@@ -9,4 +9,25 @@
   figure img {
     @apply mb-0 mt-0;
   }
+
+  br {
+    @apply block w-full h-[1px] bg-[rgba(0,0,0,.21)] dark:bg-[rgba(255,255,255,.21)] content-[''];
+  }
+}
+
+.prose
+  :where(blockquote):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+  @apply relative border-0 !border-s-0;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 3px;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 1em;
+    background-color: theme(colors.accent);
+  }
 }

@@ -2,6 +2,7 @@ import daisyui from 'daisyui'
 import type { CSSRuleObject, PluginAPI, Config } from 'tailwindcss/types/config'
 import { withTV } from 'tailwind-variants/transformer'
 import typography from '@tailwindcss/typography'
+
 require('./cssAsPlugin')
 
 const UIKitColors = {

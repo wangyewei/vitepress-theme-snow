@@ -81,8 +81,8 @@ pnpm vitepress init
 
 ```typescript
 import type { Theme } from 'vitepress'
-import YevTheme from 'vitepress-theme-yev/src/index.ts'
-import 'vitepress-theme-yev/src/styles/index.css'
+import YevTheme from 'vitepress-theme-snow'
+import 'vitepress-theme-snow/styles/index.css'
 export default {
   ...YevTheme
 } satisfies Theme

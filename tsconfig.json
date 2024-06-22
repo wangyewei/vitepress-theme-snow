@@ -7,8 +7,7 @@
     "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
-      "vitepress-theme-yev": ["src/index.ts"],
-      "@/*": ["src/*"]
+      "vitepress-theme-yev": ["src/index.ts"]
     },
     "resolveJsonModule": true,
     "allowJs": true,
@@ -20,7 +19,8 @@
     "jsxImportSource": "vue",
     "verbatimModuleSyntax": false,
     "noImplicitAny": true,
-    "declaration": true
+    "declaration": true,
+    "types": ["vite/client"]
   },
 
   "include": [

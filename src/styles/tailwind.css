@@ -1,3 +1,6 @@
+@import './variable.css';
+@import './porse.css';
+@import './scroll-bar.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
