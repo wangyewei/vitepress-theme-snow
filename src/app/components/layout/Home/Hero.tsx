@@ -15,7 +15,7 @@ export default defineComponent({
   setup() {
     const { page, theme } = useData()
     const { frontmatter } = page.value
-    const { title, motto, socials } = frontmatter
+    const { title, motto, socials, words } = frontmatter
 
     const titleAnimateD =
       title.template.reduce((acc: number, cur: { text: string }) => {
@@ -113,7 +113,7 @@ export default defineComponent({
           ]}
         >
           <small class="group flex w-[80ch] items-center justify-center text-balance">
-            生活在天空的一次停顿，世界依靠衰老维持平凡
+            {words[Math.floor(Math.random() * words.length)]}
           </small>
           <span class="mt-6 animate-bounce">
             <FaFillArrowDown />

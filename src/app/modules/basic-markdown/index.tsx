@@ -5,6 +5,10 @@ import pageTitleFactor from './internal/page-title-factor'
 import { Content } from 'vitepress'
 import { BottomToUpTransitionView } from '../../../ui/transitions'
 import { FooterContent } from './layouts'
+import LayoutRightProvider from '../../../providers/LayoutRightProvider'
+import { BASIC_MARKDOWN_CLASSNAME } from '../../../constants/markdown-cls'
+import OutLine from './internal/OutLine'
+
 export default defineComponent(() => {
   const { PageTitle, PageSubTitle } = pageTitleFactor()
 
@@ -26,12 +30,16 @@ export default defineComponent(() => {
               </header>
 
               <BottomToUpTransitionView delay={600}>
-                <Content />
+                <Content class={BASIC_MARKDOWN_CLASSNAME} />
               </BottomToUpTransitionView>
             </article>
           </div>
         </div>
         <FooterContent />
+
+        <LayoutRightProvider>
+          <OutLine />
+        </LayoutRightProvider>
       </div>
     </CheckWeatherIsPage>
   )
