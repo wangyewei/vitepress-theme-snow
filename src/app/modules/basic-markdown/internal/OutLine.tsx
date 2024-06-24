@@ -1,17 +1,13 @@
-import { defineComponent, inject, nextTick, onMounted } from 'vue'
-import {
-  useRightContent,
-  LayoutRightcontextSymbol
-} from '../../../../providers/LayoutRightProvider'
+import { defineComponent } from 'vue'
 import ClientOnly from '../../../../lib/ClientOnly'
+import ArticalRightSide from '../../../../app/components/shared/ArticalRightSide'
 
 export default defineComponent(() => {
-  const { ids } = useRightContent()
-
-  console.log(ids.value)
   return () => (
     <ClientOnly>
-      <div> outline</div>
+      <div class="absolute inset-y-0 right-0 hidden translate-x-full lg:block">
+        <ArticalRightSide />
+      </div>
     </ClientOnly>
   )
 })

@@ -13,6 +13,15 @@
   br {
     @apply block w-full h-[1px] bg-[rgba(0,0,0,.21)] dark:bg-[rgba(255,255,255,.21)] content-[''];
   }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply scroll-mt-[108px];
+  }
 }
 
 .prose
