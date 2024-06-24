@@ -24,12 +24,13 @@ export default function createMotion<T extends string>(
         type: Number,
         default: 0
       },
-      className: String
+      className: String,
+      as: { type: String, default: 'div' }
     },
     emits: ['mouseenter', 'mouseover', 'mouseleave'],
     setup(props, { slots, expose, emit }) {
       const { duration, delay } = toRefs(props)
-      const { className } = props
+      const { className, as } = props
 
       const motionRef = ref()
       const variants = {
@@ -60,15 +61,16 @@ export default function createMotion<T extends string>(
         mouseover: emit('mouseover')
       }
 
-      return () => (
-        <div
-          ref={(r: ComponentInstance<any>) => (motionRef.value = r)}
-          class={className}
-          {...listener}
-        >
-          {slots.default?.()}
-        </div>
-      )
+      return () =>
+        h(
+          as,
+          {
+            class: className,
+            ref: (r: ComponentInstance<any>) => (motionRef.value = r),
+            ...listener
+          },
+          slots.default?.()
+        )
     }
   })
 }
