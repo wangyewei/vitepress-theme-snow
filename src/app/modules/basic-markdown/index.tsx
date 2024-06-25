@@ -9,6 +9,7 @@ import LayoutRightProvider from '../../../providers/LayoutRightProvider'
 import { BASIC_MARKDOWN_CLASSNAME } from '../../../constants/markdown-cls'
 import OutLine from '../../components/outline/OutLine'
 import ArticalRightSide from '../../components/shared/ArticalRightSide'
+import ReadProgress from '../../components/outline/ReadProgress'
 
 export default defineComponent(() => {
   const { PageTitle, PageSubTitle } = pageTitleFactor()
@@ -40,7 +41,9 @@ export default defineComponent(() => {
 
         <LayoutRightProvider>
           <ArticalRightSide>
-            <OutLine />
+            <OutLine>
+              <ReadProgress />
+            </OutLine>
           </ArticalRightSide>
         </LayoutRightProvider>
       </div>

@@ -95,10 +95,13 @@ export default {
 - Home Lauout
   - [ ] TimeLine Section
   - [ ] Quick-link
+  - [ ] i18n
 - Basic Markdown Layout
-  - [ ] Last update time
+  - [x] Last update time
   - [ ] Previous and next pagination
-  - [ ] Slidebar outline
+  - [x] Slidebar outline
+    - [ ] For Mobile
+    - [ ] Change the Browser Title
   - [ ] Page context footer
 - ...
 

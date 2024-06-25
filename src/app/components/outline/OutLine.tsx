@@ -10,7 +10,7 @@ export default defineComponent((_, { slots }) => {
   return () => <AritcleRightImpl>{slots.default?.()}</AritcleRightImpl>
 })
 
-const AritcleRightImpl = defineComponent(() => {
+const AritcleRightImpl = defineComponent((_, { slots }) => {
   const outlineWrapperRef = ref()
 
   const setMaxWidth = () => {
@@ -34,7 +34,7 @@ const AritcleRightImpl = defineComponent(() => {
       class={['st-toc z-[3]', 'relative font-sans', 'static ml-4 h-full']}
       ref={(el) => (outlineWrapperRef.value = el)}
     >
-      <OutlineTree />
+      <OutlineTree>{slots.default?.()}</OutlineTree>
     </div>
   )
 })

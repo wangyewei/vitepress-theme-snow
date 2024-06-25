@@ -1,8 +1,20 @@
-import { defineComponent, onMounted, ref } from 'vue'
+import {
+  ButtonHTMLAttributes,
+  defineComponent,
+  onMounted,
+  ref,
+  toRefs,
+  watch
+} from 'vue'
 import { useMotion } from '@vueuse/motion'
-export default defineComponent({
+
+export const MotionButtonBase = defineComponent<
+  Omit<ButtonHTMLAttributes, 'class'> & { className?: string | string[] },
+  ['click']
+>({
   setup(props, { slots }) {
-    const buttonMotionRef = ref<HTMLButtonElement>()
+    const buttonMotionRef = ref()
+    const { className } = toRefs(props)
 
     const variants = {
       initial: { scale: 1 },
@@ -16,13 +28,22 @@ export default defineComponent({
       useMotion(buttonMotionRef.value, variants)
     })
 
+    watch(
+      () => className.value,
+      (e) => console.log(e)
+    )
     return () => (
       <button
-        ref={(r: HTMLButtonElement) => (buttonMotionRef.value = r)}
-        {...{ props }}
+        {...props}
+        ref={(r) => (buttonMotionRef.value = r)}
+        class={className.value}
       >
         {slots.default?.()}
       </button>
     )
   }
 })
+//@ts-ignore
+MotionButtonBase.props = ['className']
+
+export default MotionButtonBase

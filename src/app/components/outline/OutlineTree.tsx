@@ -4,7 +4,7 @@ import OutlineTreeItem from './OutlineTreeItem'
 import AnimatedTreeItem from './AnimatedTreeItem'
 import { Hero } from 'hero-motion'
 
-export default defineComponent(() => {
+export default defineComponent((_, { slots }) => {
   const { headers, activeHeader } = useRightContent()
 
   return () => (
@@ -30,13 +30,15 @@ export default defineComponent(() => {
                 />
               )}
               <OutlineTreeItem
-                title={header.id}
+                title={header.innerText}
                 isActive={isActive.value}
                 onClick={() => header?.scrollIntoView({ behavior: 'smooth' })}
               />
             </AnimatedTreeItem>
           )
         })}
+
+        {slots.default && <li class="shrink-0">{slots.default?.()}</li>}
       </ul>
     </ul>
   )
