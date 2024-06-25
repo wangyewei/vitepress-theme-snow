@@ -20,7 +20,7 @@ export default defineComponent(() => {
       <div class="text-gray-800 dark:text-neutral-300">
         <div class="flex items-center gap-2">
           <FaSolidProgress80 width={16} height={16} />
-          <span>{Math.ceil(percent.value)}%</span>
+          <span>{Math.floor(percent.value)}%</span>
         </div>
         <MotionButtonBase
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}

@@ -7,9 +7,9 @@ import { BottomToUpTransitionView } from '../../../ui/transitions'
 import { FooterContent } from './layouts'
 import LayoutRightProvider from '../../../providers/LayoutRightProvider'
 import { BASIC_MARKDOWN_CLASSNAME } from '../../../constants/markdown-cls'
-import OutLine from '../../components/outline/OutLine'
+import { Outline, OutlineMobile, ReadProgress } from '../../components/outline'
 import ArticalRightSide from '../../components/shared/ArticalRightSide'
-import ReadProgress from '../../components/outline/ReadProgress'
+import { MobileScreen } from '../../components/common/devices-screen'
 
 export default defineComponent(() => {
   const { PageTitle, PageSubTitle } = pageTitleFactor()
@@ -41,10 +41,14 @@ export default defineComponent(() => {
 
         <LayoutRightProvider>
           <ArticalRightSide>
-            <OutLine>
+            <Outline>
               <ReadProgress />
-            </OutLine>
+            </Outline>
           </ArticalRightSide>
+
+          <MobileScreen>
+            <OutlineMobile />
+          </MobileScreen>
         </LayoutRightProvider>
       </div>
     </CheckWeatherIsPage>

@@ -10,7 +10,6 @@ import {
   onUnmounted
 } from 'vue'
 import { BASIC_MARKDOWN_CLASSNAME } from '../constants/markdown-cls'
-import { debounce } from '../lib/denounce'
 
 type LayoutRightContextReturns = {
   headers: Ref<HTMLCollectionOf<HTMLHeadingElement> | undefined>
