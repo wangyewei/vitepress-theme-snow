@@ -5,6 +5,6 @@ type PortalProps = {
 }
 export default defineComponent<PortalProps>((props, { slots }) => () => (
   <ClientOnly>
-    <Teleport to={props.to || document.body}>{slots.default?.()}</Teleport>
+    <Teleport to={props.to || 'body'}>{slots.default?.()}</Teleport>
   </ClientOnly>
 ))
