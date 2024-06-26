@@ -167,6 +167,10 @@ const UIKitColors = {
 const config: Config = {
   content: ['./src/**/*.{js,jsx,ts,tsx,vue}'],
   safelist: [
+    {
+      pattern: /^(?!(?:scroll|bottom)$)m\w?-/,
+      variants: ['sm', 'md', 'lg', 'xl', '2xl']
+    },
     'font-light',
     'text-3xl',
     'text-4xl',
@@ -198,7 +202,11 @@ const config: Config = {
 
     'mr-2',
 
-    'gap-[4px]'
+    'gap-[4px]',
+    'gap-[8px]',
+
+    'lg:justify-start',
+    'justify-start'
   ],
   theme: {
     extend: {

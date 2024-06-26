@@ -4,6 +4,7 @@ import { useRightContent } from '../../../providers/LayoutRightProvider'
 import { FaSolidProgress80 } from '../icons/media-collection'
 import { MotionButtonBase } from '../../../ui/button'
 import { FaSolidArrowUpCircle } from '../icons/arrow-collection'
+import Portal from '../../../ui/portal/Portal'
 
 export default defineComponent(() => {
   const { percent } = useRightContent()
@@ -31,5 +32,27 @@ export default defineComponent(() => {
         </MotionButtonBase>
       </div>
     </Fragment>
+  )
+})
+
+export const ReadProgressVertical = defineComponent(() => {
+  const { percent } = useRightContent()
+
+  return () => (
+    <Portal>
+      <div
+        class={[
+          'fixed inset-y-0 right-0 z-[199] w-px transition-opacity duration-200 ease-in-out',
+          'opacity-100'
+        ]}
+      >
+        <div
+          class="absolute top-0 w-full bg-accent/80 duration-75 ease-linear"
+          style={{
+            height: `${percent.value}%`
+          }}
+        />
+      </div>
+    </Portal>
   )
 })

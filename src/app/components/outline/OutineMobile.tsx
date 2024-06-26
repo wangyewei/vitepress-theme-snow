@@ -1,19 +1,22 @@
-import { defineComponent } from 'vue'
+import { Fragment, defineComponent } from 'vue'
 import PresentSheet from '../../../ui/sheet'
 import { useSheetContext } from '../../../ui/sheet/SheetContext'
 import Fab from '../../../ui/fab/Fab'
 import Portal from '../../../ui/portal/Portal'
 import { FaSolidOutline } from '../icons/media-collection'
 import { OutlineTreeInner } from './OutlineTree'
-
+import { ReadProgressVertical } from './ReadProgress'
 export default defineComponent(() => {
   return () => (
-    <PresentSheet>
-      {{
-        default: () => <ActionSheetContextButon />,
-        content: () => <ContenxtBody />
-      }}
-    </PresentSheet>
+    <Fragment>
+      <PresentSheet>
+        {{
+          default: () => <ActionSheetContextButon />,
+          content: () => <ContenxtBody />
+        }}
+      </PresentSheet>
+      <ReadProgressVertical />
+    </Fragment>
   )
 })
 /**
@@ -26,7 +29,7 @@ const ActionSheetContextButon = defineComponent(() => {
   return () => (
     <Portal>
       <Fab onClick={() => (isOpen.value = true)}>
-        <FaSolidOutline width={24} height={24} />
+        <FaSolidOutline width={20} height={20} />
       </Fab>
     </Portal>
   )

@@ -1,25 +1,32 @@
-import { defineComponent, toRefs } from 'vue'
+import { computed, defineComponent } from 'vue'
 import { factorVue } from '../transitions'
+import useScroll from '../../hooks/useScroll'
 
-interface FabContainerProps {
-  show: boolean
-}
-export const FabContainer = defineComponent<FabContainerProps>(
-  (props, { slots }) => {
-    const { show } = toRefs(props)
-    return () => (
-      <div
-        class={[
-          'font-lg fixed bottom-[calc(2rem+env(safe-area-inset-bottom))] left-[calc(100vw-3rem-1rem)] z-[9] flex flex-col',
-          !show.value ? 'translate-x-[calc(100%+2rem)]' : '',
-          'transition-transform duration-300 ease-in-out'
-        ]}
-      >
-        {slots.default?.()}
-      </div>
-    )
-  }
-)
+export const FabContainer = defineComponent((_, { slots }) => {
+  const { isScrollingDown } = useScroll()
+
+  /**
+   * TODO
+   *  UX enhancement
+   *
+   *  1. should be `false` by default
+   *  2. should be `false` when scrolling up past a certain point
+   *  3. should be `false` when scrolling down to the end
+   */
+  const shouldHide = computed(() => isScrollingDown.value)
+
+  return () => (
+    <div
+      class={[
+        'font-lg fixed bottom-[calc(2rem+env(safe-area-inset-bottom))] left-[calc(100vw-3rem-1rem)] z-[9] flex flex-col',
+        shouldHide.value ? 'translate-x-[calc(100%+2rem)]' : '',
+        'transition-transform duration-300 ease-in-out'
+      ]}
+    >
+      {slots.default?.()}
+    </div>
+  )
+})
 //@ts-ignore
 FabContainer.props = ['show']
 

@@ -42,7 +42,7 @@ body {
 *::-webkit-scrollbar {
   width: 5px !important;
   height: 5px !important;
-  background: theme(colors.zinc.100);
+  /* background: theme(colors.zinc.100); */
 }
 
 *::-webkit-scrollbar-thumb {

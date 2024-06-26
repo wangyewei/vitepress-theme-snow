@@ -3,7 +3,7 @@ import { FabContainer, FabBase } from './FabContainer'
 
 export default defineComponent<{}, ['click']>((_, { slots, emit }) => {
   return () => (
-    <FabContainer show>
+    <FabContainer>
       <FabBase onClick={() => emit('click')}>{slots.default?.()}</FabBase>
     </FabContainer>
   )

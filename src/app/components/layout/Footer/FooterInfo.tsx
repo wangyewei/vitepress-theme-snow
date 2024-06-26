@@ -1,7 +1,8 @@
-import { FC } from '@/shared'
+import { FC } from 'src/shared'
 import { useData } from 'vitepress'
-import { VPYevTheme } from 'vitepress-theme-yev'
-import { Fragment, defineComponent } from 'vue'
+// TODO rename
+import { FooterTemplate, VPYevTheme } from 'vitepress-theme-yev'
+import { Fragment, defineComponent, VNode } from 'vue'
 import { FaSolidArrowRight } from '../../icons/arrow-collection'
 import { isExternal } from '../../../../shared'
 
@@ -83,18 +84,27 @@ Owner.props = ['name', 'startYear']
 const FooterTemplate = defineComponent(() => {
   const { theme } = useData<VPYevTheme>()
   const template = theme.value.footer.template
-  return () =>
-    !!template &&
+  // TODO: remove any
+  // const renderTemplate = (template: FooterTemplate[]): VNode[] => {
+  //   return template.map((t) =>
+  //     h(
+  //       t.type,
+  //       { class: t.className, ...(t.props || {}) },
+  //       t.children && t.children.length > 0
+  //         ? renderTemplate(t.children)
+  //         : t.text
+  //     )
+  //   )
+  // }
+
+  const renderTemplate = (template: FooterTemplate[]): VNode[] =>
     template.map((t) =>
       h(
         t.type,
-        { class: t.className, ...(t?.props || {}) },
-        <Fragment>
-          {!!t.text && <span class={t.className}>{t.text}</span>}
-          {t?.children?.map((_t) =>
-            h(_t.type, { class: _t?.className, ...(_t?.props || {}) }, _t.text)
-          )}
-        </Fragment>
+        { class: t?.className || '', ...(t?.props || {}) },
+        t.children && t.children.length ? renderTemplate(t.children) : t.text
       )
     )
+
+  return () => (!!template ? renderTemplate(template) : null)
 })

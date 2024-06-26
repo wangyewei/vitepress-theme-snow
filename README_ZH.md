@@ -115,3 +115,5 @@ export default {
 &copy; 2024 王野未
 
 根据 [AGPLv3 许可证](https://github.com/wangyewei/vitepress-theme-yev/blob/main/LICENSE)进行许可。
+
+此外，还需遵守[附加条款]('./ADDITION_TERMS_ZH.md')

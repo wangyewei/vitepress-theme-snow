@@ -117,4 +117,8 @@ Most of the code comes from [Shiro](https://github.com/innei/Shiro)
 
 &copy; 2024 Yev Wang
 
-Licensed under the [AGPLv3 license.](https://github.com/wangyewei/vitepress-theme-yev/blob/main/LICENSE)
+Licensed under the [AGPLv3 license.](https://github.com/wangyewei/vitepress-theme-yev/blob/main/LICENSE).
+
+In addition to the terms of the AGPLv3, the following additional conditions apply:
+
+[ADDITION_TERMS]('./ADDITION_TERMS.md')

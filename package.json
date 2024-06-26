@@ -21,10 +21,12 @@
     "vitepress",
     "tailwind",
     "typescript",
-    "tsx"
+    "tsx",
+    "blog",
+    "shiro"
   ],
   "author": "Yev Wang",
-  "license": "AGPL-3.0-only",
+  "license": "AGPL-3.0-with-conditions",
   "scripts": {
     "dev:tailwind": "npx tailwindcss -i ./src/styles/tailwind.css -o ./src/styles/virtual-tailwind.css --watch",
     "build:tailwind": "npx tailwindcss -i ./src/styles/tailwind.css -o ./src/styles/virtual-tailwind.css",
