@@ -121,4 +121,4 @@ Licensed under the [AGPLv3 license.](https://github.com/wangyewei/vitepress-them
 
 In addition to the terms of the AGPLv3, the following additional conditions apply:
 
-[ADDITION_TERMS]('./ADDITION_TERMS.md')
+[ADDITION_TERMS](./ADDITION_TERMS.md).
