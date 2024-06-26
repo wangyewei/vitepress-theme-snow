@@ -1,7 +1,7 @@
 {
   "packageManager": "pnpm@8.15.4",
   "name": "vitepress-theme-snow",
-  "version": "1.0.0",
+  "version": "1.0.1-beta.1",
   "description": "A modern blog theme for vitepress",
   "type": "module",
   "engines": {
@@ -34,7 +34,8 @@
     "build:prepare": "rimraf dist",
     "build:theme": "rollup --config rollup.config.ts --configPlugin esbuild",
     "build:clean-cache": "rimraf types-temp",
-    "build": "run-s build:prepare build:theme build:css build:clean-cache"
+    "build": "run-s build:prepare build:theme build:css build:clean-cache",
+    "release": "bumpp package.json --commit --push --tag"
   },
   "devDependencies": {
     "@babel/core": "^7.24.7",
@@ -50,6 +51,7 @@
     "@vue/babel-plugin-jsx": "^1.2.2",
     "@vue/tsconfig": "^0.5.1",
     "autoprefixer": "^10.4.19",
+    "bumpp": "^9.4.1",
     "daisyui": "^4.11.1",
     "esno": "^4.7.0",
     "fast-glob": "^3.3.2",
