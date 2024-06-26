@@ -15,10 +15,10 @@ export type FooterLink = {
   }[]
 }
 
-export type FooterTemplate = {
+export type FooterTemplateProps = {
   type?: string
   text?: string
-  children?: FooterTemplate[]
+  children?: FooterTemplateProps[]
   className?: string
   props?: any
 }
@@ -33,7 +33,7 @@ export type VPYevTheme = {
   }
   footer: {
     links: FooterLink[]
-    template?: FooterTemplate[]
+    template?: FooterTemplateProps[]
   }
 }
 
