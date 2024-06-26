@@ -17,10 +17,6 @@ const hexToOklchString = (hex: string) => {
   return new Color(hex).oklch
 }
 
-const hexToColor = (hex: string) => {
-  return new Color(hex)
-}
-
 const accentColorLight = ['#8e44ad', '#1abc9c', '#487eb0', '#00a8ff', '#182C61']
 const accentColorDark = ['#FD7272', '#D6A2E8', '#7d5fff', '#3ae374', '#ED4C67']
 

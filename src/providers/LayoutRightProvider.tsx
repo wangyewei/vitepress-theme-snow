@@ -10,6 +10,7 @@ import {
   onUnmounted
 } from 'vue'
 import { BASIC_MARKDOWN_CLASSNAME } from '../constants/markdown-cls'
+import { inBrowser } from 'vitepress'
 
 type LayoutRightContextReturns = {
   headers: Ref<HTMLCollectionOf<HTMLHeadingElement> | undefined>
@@ -37,6 +38,7 @@ export default defineComponent((_, { slots }) => {
   const markdownContentRef = ref<Element>()
 
   const getHeaders = () => {
+    if (!inBrowser) return
     const markdownContent = document.getElementsByClassName(
       BASIC_MARKDOWN_CLASSNAME
     )?.[0]
@@ -69,6 +71,7 @@ export default defineComponent((_, { slots }) => {
   const markdownScrollProgress = ref(0)
 
   const calculateMarkdownScrollPercent = () => {
+    if (!inBrowser) return
     if (!markdownContentRef.value) return
     const scrollTop = window.scrollY || document.documentElement.scrollTop
     const scrollHeight =

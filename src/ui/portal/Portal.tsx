@@ -1,8 +1,10 @@
 import { Teleport, defineComponent } from 'vue'
-
+import ClientOnly from '../../lib/ClientOnly'
 type PortalProps = {
   to?: HTMLElement
 }
 export default defineComponent<PortalProps>((props, { slots }) => () => (
-  <Teleport to={props.to || document.body}>{slots.default?.()}</Teleport>
+  <ClientOnly>
+    <Teleport to={props.to || document.body}>{slots.default?.()}</Teleport>
+  </ClientOnly>
 ))
