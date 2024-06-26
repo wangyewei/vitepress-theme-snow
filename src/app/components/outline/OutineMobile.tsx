@@ -1,39 +1,43 @@
-import { defineComponent, ref } from 'vue'
+import { defineComponent } from 'vue'
 import PresentSheet from '../../../ui/sheet'
+import { useSheetContext } from '../../../ui/sheet/SheetContext'
 import Fab from '../../../ui/fab/Fab'
+import Portal from '../../../ui/portal/Portal'
+import { FaSolidOutline } from '../icons/media-collection'
+import { OutlineTreeInner } from './OutlineTree'
 
-export default defineComponent((_, { slots }) => {
+export default defineComponent(() => {
   return () => (
     <PresentSheet>
-      {{ default: () => <Fab></Fab>, content: () => <div>123</div> }}
+      {{
+        default: () => <ActionSheetContextButon />,
+        content: () => <ContenxtBody />
+      }}
     </PresentSheet>
   )
 })
+/**
+ * TODO:
+ *  should hide this button while scrolling down, and show it
+ *  when scrolling up.
+ */
+const ActionSheetContextButon = defineComponent(() => {
+  const { isOpen } = useSheetContext()
+  return () => (
+    <Portal>
+      <Fab onClick={() => (isOpen.value = true)}>
+        <FaSolidOutline width={24} height={24} />
+      </Fab>
+    </Portal>
+  )
+})
 
-// export const ActionButton = defineComponent(() => {
-//   const shouldHide = ref(false)
-//   return () => (
-//     <div
-//       class={[
-//         'font-lg fixed bottom-[calc(2rem+env(safe-area-inset-bottom))] left-[calc(100vw-3rem-1rem)] z-[9] flex flex-col',
-//         shouldHide.value ? 'translate-x-[calc(100%+2rem)]' : '',
-//         'transition-transform duration-300 ease-in-out'
-//       ]}
-//     ></div>
-//   )
-// })
-
-// export const HeaderDrawerButton: FC = () => (
-//   <PresentSheet>
-//     {{
-//       default: () => (
-//         <HeaderActionMenuButton>
-//           <FaSolidMenu />
-//         </HeaderActionMenuButton>
-//       ),
-//       content: () => <HeaderDrawerContent />
-//     }}
-//   </PresentSheet>
-// )
-
-// export default HeaderDrawerButton
+const ContenxtBody = defineComponent(() => {
+  const { isOpen } = useSheetContext()
+  return () => (
+    <div class="scrollbar-none mt-12 max-h-[80dvh] w-[90vw] space-y-4 overflow-auto pb-24">
+      <h2 class=" mb-4 flex justify-center text-lg font-medium">Outline</h2>
+      <OutlineTreeInner onTap={() => (isOpen.value = false)} />
+    </div>
+  )
+})

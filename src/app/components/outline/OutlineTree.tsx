@@ -1,12 +1,10 @@
-import { computed, defineComponent } from 'vue'
+import { computed, defineComponent, Ref, toRefs } from 'vue'
 import { useRightContent } from '../../../providers/LayoutRightProvider'
 import OutlineTreeItem from './OutlineTreeItem'
 import AnimatedTreeItem from './AnimatedTreeItem'
 import { Hero } from 'hero-motion'
 
 export default defineComponent((_, { slots }) => {
-  const { headers, activeHeader } = useRightContent()
-
   return () => (
     <ul
       class={[
@@ -14,6 +12,23 @@ export default defineComponent((_, { slots }) => {
         'absolute h-full min-h-[120px] flex flex-col'
       ]}
     >
+      <OutlineTreeInner>{slots.default?.()}</OutlineTreeInner>
+    </ul>
+  )
+})
+
+export const OutlineTreeInner = defineComponent<{}, ['click', 'tap']>(
+  (_, { slots, emit }) => {
+    const { headers, activeHeader } = useRightContent()
+
+    const handleItemClick = (header?: HTMLHeadingElement) => {
+      header?.scrollIntoView({ behavior: 'smooth' })
+    }
+    const handleItemTap = (header?: HTMLHeadingElement) => {
+      emit('tap')
+      setTimeout(() => handleItemClick(header), 150)
+    }
+    return () => (
       <ul class="scrollbar-none overflow-auto w-fit">
         {Array.from(headers.value || []).map((header, idx) => {
           const isActive = computed(() => activeHeader.value === header.id)
@@ -32,7 +47,8 @@ export default defineComponent((_, { slots }) => {
               <OutlineTreeItem
                 title={header.innerText}
                 isActive={isActive.value}
-                onClick={() => header?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => handleItemClick(header)}
+                onTap={() => handleItemTap(header)}
               />
             </AnimatedTreeItem>
           )
@@ -40,6 +56,6 @@ export default defineComponent((_, { slots }) => {
 
         {slots.default && <li class="shrink-0">{slots.default?.()}</li>}
       </ul>
-    </ul>
-  )
-})
+    )
+  }
+)

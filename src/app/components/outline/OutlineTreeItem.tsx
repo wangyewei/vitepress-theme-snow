@@ -17,13 +17,14 @@ export type OutlineTreeItemProps = {
   isActive: boolean
   title: string
 }
-const OutlineTreeItem = defineComponent<OutlineTreeItemProps, ['click']>(
+const OutlineTreeItem = defineComponent<OutlineTreeItemProps, ['click', 'tap']>(
   (props, { emit }) => {
     const { isActive } = toRefs(props)
     const { title } = props
     return () => (
       <span
         onClick={() => emit('click')}
+        onTouchend={() => emit('tap')}
         class={styles({
           status: isActive.value ? 'active' : undefined
         })}

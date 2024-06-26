@@ -1,10 +1,10 @@
 import { defineComponent } from 'vue'
 import { FabContainer, FabBase } from './FabContainer'
 
-export default defineComponent(() => {
+export default defineComponent<{}, ['click']>((_, { slots, emit }) => {
   return () => (
     <FabContainer show>
-      <FabBase></FabBase>
+      <FabBase onClick={() => emit('click')}>{slots.default?.()}</FabBase>
     </FabContainer>
   )
 })

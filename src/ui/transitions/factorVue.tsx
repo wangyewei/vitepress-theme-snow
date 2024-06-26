@@ -8,13 +8,21 @@ export default function createMotion<T extends string>(
 ) {
   const { initial, enter, visible, preset, leave, ...rest } = motionParamaters
 
-  const TransitionVueView = defineComponent<{
-    duration?: number
-    delay?: number
-    visible?: boolean
-    as?: string
-  }>((props, { slots }) => {
+  const TransitionVueView = defineComponent<
+    {
+      duration?: number
+      delay?: number
+      visible?: boolean
+      as?: string
+    },
+    ['click']
+  >((props, { slots, emit }) => {
     const { duration, delay, as, visible } = toRefs(props)
+
+    const listener = {
+      onClick: () => emit('click')
+    }
+
     return () => (
       <TransitionVueImpl
         as={as?.value}
@@ -25,6 +33,7 @@ export default function createMotion<T extends string>(
         duration={duration?.value}
         delay={delay?.value}
         visible={visible?.value}
+        {...listener}
         {...rest}
       >
         {slots.default?.()}

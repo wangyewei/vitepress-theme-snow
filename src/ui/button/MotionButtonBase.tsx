@@ -3,8 +3,7 @@ import {
   defineComponent,
   onMounted,
   ref,
-  toRefs,
-  watch
+  toRefs
 } from 'vue'
 import { useMotion } from '@vueuse/motion'
 
@@ -28,10 +27,6 @@ export const MotionButtonBase = defineComponent<
       useMotion(buttonMotionRef.value, variants)
     })
 
-    watch(
-      () => className.value,
-      (e) => console.log(e)
-    )
     return () => (
       <button
         {...props}
