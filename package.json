@@ -1,7 +1,7 @@
 {
   "packageManager": "pnpm@8.15.4",
   "name": "vitepress-theme-snow",
-  "version": "1.0.1-beta.1",
+  "version": "1.0.2-beta.1",
   "description": "A modern blog theme for vitepress",
   "type": "module",
   "engines": {
@@ -13,8 +13,13 @@
   },
   "types": "./dist/index.d.ts",
   "files": [
-    "dist",
-    "types"
+    "dist/",
+    "package.json",
+    "README.md",
+    "README_ZH.md",
+    "LICENSE",
+    "ADDITION_TERMS.md",
+    "ADDITION_TERMS_ZH.md"
   ],
   "keywords": [
     "theme",
