@@ -11,7 +11,7 @@ export const HeaderDrawerButton: FC = () => (
           <FaSolidMenu />
         </HeaderActionMenuButton>
       ),
-      content: () => <HeaderDrawerContent />
+      content: () => h(<HeaderDrawerContent />)
     }}
   </PresentSheet>
 )

@@ -5,7 +5,7 @@ export default function (): Plugin {
   return {
     name: 'unplugin-auto-function-slot',
     async transform(code, id) {
-      if (TSX_FILE_REGX.test(id)) {
+      if (TSX_FILE_REGX.test(id) && false) {
         console.log(code)
       }
     }

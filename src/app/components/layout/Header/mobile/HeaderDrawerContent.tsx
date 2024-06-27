@@ -11,11 +11,12 @@ export default defineComponent({
 
     return () => (
       <div class="scrollbar-none mt-12 max-h-[80dvh] w-[90vw] space-y-4 overflow-auto pb-24">
-        {theme.value.nav.items?.map((item, index) => (
+        123
+        {/* {theme.value.nav.items?.map((item) => (
           <BottomToUpTransitionView key={item.path}>
             <a href={item.path} onClick={() => (isOpen.value = false)}>
               <span class="flex items-center space-x-2 py-2 dark:text-white">
-                {item?.icon && useEnumHeaderIcons(item.icon)}
+                {item?.icon && h(useEnumHeaderIcons(item.icon))}
                 <h2>{item.title}</h2>
               </span>
             </a>
@@ -35,7 +36,7 @@ export default defineComponent({
               </ul>
             )}
           </BottomToUpTransitionView>
-        ))}
+        ))} */}
       </div>
     )
   }

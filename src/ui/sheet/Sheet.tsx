@@ -21,6 +21,7 @@ const DrawerWithContext = defineComponent({
         <DrawerPortal>
           <DrawerOverlay
             class="fixed inset-0 bg-neutral-800/40"
+            // @ts-ignore
             onClick={() => (isOpen.value = false)}
           />
           <DrawerContent
