@@ -144,7 +144,8 @@ const NavItems = defineComponent({
                 layoutId="header-menu-icon"
                 class="mr-2 flex items-center"
               >
-                {icon && useEnumHeaderIcons(subItemActive.value?.icon || icon)}
+                {icon &&
+                  h(useEnumHeaderIcons(subItemActive.value?.icon || icon))}
               </Hero>
             )}
             <span>{subItemActive.value?.title || title}</span>

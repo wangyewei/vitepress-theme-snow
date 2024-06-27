@@ -12,6 +12,7 @@ import jsxUnPlugin from 'unplugin-vue-jsx/rollup'
 import inject from '@rollup/plugin-inject'
 import ts from 'rollup-plugin-typescript2'
 import dts from 'rollup-plugin-dts'
+import autoFunctionSlotPlugin from './unplugin-auto-function-slot'
 
 const ROOT = fileURLToPath(import.meta.url)
 const r = (p: string) => resolve(ROOT, '..', p)
@@ -32,7 +33,8 @@ const plugins = [
     useTsconfigDeclarationDir: true,
     tsconfig: './tsconfig.rollup.json',
     check: false
-  })
+  }),
+  autoFunctionSlotPlugin()
 ]
 
 const themeBuild: RollupOptions = {

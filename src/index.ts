@@ -7,15 +7,6 @@ export default {
   Layout,
   async enhanceApp({ app, siteData, router }) {
     app.use(MotionPlugin)
-    /**
-     * `{() => component}` is too ugly to me, so I'd rather give
-     * up better perfomance
-     */
-    app.config.warnHandler = (msg: any) => {
-      if (msg.includes('Non-function value encountered for default slot')) {
-        return
-      }
-    }
 
     router.onBeforeRouteChange = async () => {
       await accentThemeStylesInjector(siteData.value.themeConfig)

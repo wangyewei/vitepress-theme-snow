@@ -40,6 +40,7 @@
     "build:theme": "rollup --config rollup.config.ts --configPlugin esbuild",
     "build:clean-cache": "rimraf types-temp",
     "build": "run-s build:prepare build:theme build:css build:clean-cache",
+    "build:theme-only": "run-s build:prepare build:theme build:clean-cache",
     "release": "bumpp package.json --commit --push --tag"
   },
   "devDependencies": {
