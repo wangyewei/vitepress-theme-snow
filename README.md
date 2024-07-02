@@ -116,7 +116,7 @@ export default {
 
 Most of the code comes from [Shiro](https://github.com/innei/Shiro)
 
-## Lisense
+## License
 
 &copy; 2024 Yev Wang
 
