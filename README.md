@@ -38,8 +38,11 @@
   </p>
 </p>
 
+<p align="center">
+  <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white"/>
+</p>
+<p align="center"><a href="https://yev.wang">yev.wang</a></p>
 <p align="center"> English| <a href="./README_ZH.md">简体中文</a></p>
-
 ## Installation
 
 ```sh
