@@ -1,5 +1,4 @@
 import {
-  Fragment,
   Ref,
   defineComponent,
   inject,
@@ -20,7 +19,7 @@ export default defineComponent({
       isOpen
     })
 
-    return () => <Fragment>{slots.default?.()}</Fragment>
+    return () => slots.default?.()
   }
 })
 

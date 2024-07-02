@@ -11,7 +11,7 @@ export default defineComponent(() => {
     <Fragment>
       <PresentSheet>
         {{
-          default: () => <ActionSheetContextButon />,
+          trigger: () => <ActionSheetContextButon />,
           content: () => <ContenxtBody />
         }}
       </PresentSheet>

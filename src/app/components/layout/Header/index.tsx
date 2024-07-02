@@ -8,7 +8,7 @@ import HeaderArea, {
 } from './HeaderArea'
 import AnimatedLogo from './AnimatedLogo'
 import HeaderContent from './HeaderContent'
-import HeaderDrawerButton from './HeaderDrawerButton'
+import HeaderDrawerButton from './HeaderDrawerButtonVue.vue'
 import HeaderMetaInfo from './HeaderMetaInfo'
 import { MobileScreen } from '../../common/devices-screen'
 
