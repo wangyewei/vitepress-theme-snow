@@ -1,10 +1,8 @@
-import { MenuIconCollection } from '.'
-
 export type VPYevThemeNavItem = {
   title: string
   path?: string
   children?: VPYevThemeNavItem[]
-  icon?: MenuIconCollection
+  icon?: any
 }
 
 export type FooterLink = {

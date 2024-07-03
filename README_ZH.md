@@ -49,11 +49,11 @@
 
 > 建议您具备 [VitePress](https://vitepress.dev/guide/getting-started) 的基础知识。
 
-了解更多请访问 [文档]('./documentation_zh.md')。
+了解更多请访问 [文档](./documentation_zh.md)。
 
 ## 短期目标
 
-[即将支持的功能。]('./short_term_goal_zh.md')
+[即将支持的功能。](./short_term_goal_zh.md)
 
 ## 截图
 

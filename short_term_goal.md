@@ -10,4 +10,6 @@
     - [x] Change the Browser Title
   - [x] Page context footer
   - [ ] Code sections support.
+- Article column
+  - [ ] Develop a plugin to do it by automatically
 - ...

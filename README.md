@@ -48,11 +48,11 @@
 
 > It is recommended that you have prior knowledge of [VitePress](https://vitepress.dev/guide/getting-started).
 
-Know more on [Documentation]('./documentation.md').
+Know more on [Documentation](./documentation.md).
 
 ## Short-term Goal
 
-[What we support in comming days.]('./short_term_goal.md')
+[What we support in comming days.](./short_term_goal.md)
 
 ## Screen Capture
 
