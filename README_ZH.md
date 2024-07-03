@@ -39,9 +39,11 @@
 <p align="center"><a href="https://yev.wang">yev.wang</a></p>
 <p align="center"> <a href="./README.md">English</a> | 简体中文</p>
 
+> [!NOTE]
 > 🚧 开发中 🚧
 >
 > 暂时不能用于生产环境。
+> 中文文档暂时不全。
 
 ## 快速开始
 
