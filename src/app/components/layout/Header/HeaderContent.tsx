@@ -1,5 +1,5 @@
 import { useData, useRoute } from 'vitepress'
-import { VPYevTheme, VPYevThemeNavItem } from 'vitepress-theme-yev'
+import { VPSnowTheme, VPYevThemeNavItem } from 'vitepress-theme-yev'
 import { MenuIconCollection } from '../../icons/menu-collection'
 import { defineComponent, ref, computed, toRefs, PropType } from 'vue'
 import MenuPopover from '../../common/MenuPopover'
@@ -41,7 +41,7 @@ const AnimatedMenu = defineComponent((_, { slots }) => {
 
 const NavContentDesktop = defineComponent({
   setup() {
-    const { theme } = useData<VPYevTheme>()
+    const { theme } = useData<VPSnowTheme>()
 
     const mouseX = ref(0)
     const mouseY = ref(0)

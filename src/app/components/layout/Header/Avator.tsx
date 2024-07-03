@@ -1,10 +1,10 @@
 import { useData, useRouter } from 'vitepress'
-import { VPYevTheme } from 'vitepress-theme-yev'
+import { VPSnowTheme } from 'vitepress-theme-yev'
 import { defineComponent } from 'vue'
 
 export default defineComponent({
   setup() {
-    const { theme } = useData<VPYevTheme>()
+    const { theme } = useData<VPSnowTheme>()
     const router = useRouter()
     return () => (
       <div

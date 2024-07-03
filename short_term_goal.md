@@ -1,0 +1,13 @@
+- Home Lauout
+  - [ ] TimeLine Section
+  - [ ] Quick-link
+  - [ ] i18n
+- Basic Markdown Layout
+  - [x] Last update time
+  - [ ] Previous and next pagination
+  - [x] Slidebar outline
+    - [x] For Mobile
+    - [x] Change the Browser Title
+  - [x] Page context footer
+  - [ ] Code sections support.
+- ...

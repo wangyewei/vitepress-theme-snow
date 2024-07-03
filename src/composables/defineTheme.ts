@@ -22,7 +22,7 @@ export type FooterTemplateProps = {
   className?: string
   props?: any
 }
-export type VPYevTheme = {
+export type VPSnowTheme = {
   copyright?: {
     name?: string
     startYear?: string
@@ -37,5 +37,5 @@ export type VPYevTheme = {
   }
 }
 
-export const defineTheme = (theme: VPYevTheme): VPYevTheme =>
-  theme satisfies VPYevTheme
+export const defineTheme = (theme: VPSnowTheme): VPSnowTheme =>
+  theme satisfies VPSnowTheme

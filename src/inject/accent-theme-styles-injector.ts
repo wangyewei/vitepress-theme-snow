@@ -5,7 +5,7 @@
  *
  */
 import { inBrowser } from 'vitepress'
-import { VPYevTheme } from 'vitepress-theme-yev'
+import { VPSnowTheme } from 'vitepress-theme-yev'
 // TODO:
 // fix the follow commented functions
 // import { hexToOklchString } from '../lib/color-tranformer'
@@ -28,7 +28,7 @@ const lightBg = 'rgb(250, 250, 250)'
  * TODO:
  *  use the custom thme color from theme-config
  */
-export default async function (themeConfig: VPYevTheme) {
+export default async function (themeConfig: VPSnowTheme) {
   if (!inBrowser) return
   const tag = document.createElement('style')
   tag.setAttribute('id', 'accent-color-style')

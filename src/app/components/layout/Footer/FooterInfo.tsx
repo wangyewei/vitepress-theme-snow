@@ -1,7 +1,7 @@
 import { FC } from 'src/shared'
 import { useData } from 'vitepress'
 // TODO rename
-import { FooterTemplateProps, VPYevTheme } from 'vitepress-theme-yev'
+import { FooterTemplateProps, VPSnowTheme } from 'vitepress-theme-yev'
 import { defineComponent, VNode } from 'vue'
 import { FaSolidArrowRight } from '../../icons/arrow-collection'
 import { isExternal } from '../../../../shared'
@@ -14,7 +14,7 @@ export default (() => (
 )) satisfies FC
 
 const FooterLinkSection = defineComponent(() => {
-  const { theme } = useData<VPYevTheme>()
+  const { theme } = useData<VPSnowTheme>()
 
   const footerLinks = theme.value.footer.links
 
@@ -44,7 +44,7 @@ const FooterLinkSection = defineComponent(() => {
 })
 
 const FootterMoreInfo = defineComponent(() => {
-  const { theme } = useData<VPYevTheme>()
+  const { theme } = useData<VPSnowTheme>()
   const copyright = theme.value.copyright
 
   return () =>
@@ -82,7 +82,7 @@ Owner.props = ['name', 'startYear']
  * footer template recursion render.
  */
 const FooterTemplate = defineComponent(() => {
-  const { theme } = useData<VPYevTheme>()
+  const { theme } = useData<VPSnowTheme>()
   const template = theme.value.footer.template
   // TODO: remove any
 

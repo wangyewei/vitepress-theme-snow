@@ -1,12 +1,12 @@
 import { useData } from 'vitepress'
-import { VPYevTheme } from 'vitepress-theme-yev'
+import { VPSnowTheme } from 'vitepress-theme-yev'
 import { defineComponent } from 'vue'
 import { BottomToUpTransitionView } from '../../../../../ui/transitions'
 import { useEnumHeaderIcons } from '../../../icons/menu-collection'
 import { useSheetContext } from '../../../../../ui/sheet/SheetContext'
 export default defineComponent({
   setup() {
-    const { theme } = useData<VPYevTheme>()
+    const { theme } = useData<VPSnowTheme>()
     const { isOpen } = useSheetContext()
 
     return () => (
