@@ -61,7 +61,7 @@ Know more on [Documentation]('./documentation.md').
 
 Most of the code comes from [Shiro](https://github.com/innei/Shiro).
 
-## Lisense
+## License
 
 &copy; 2024 Yev Wang
 
