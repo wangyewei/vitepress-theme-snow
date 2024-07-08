@@ -34,6 +34,11 @@
 </p>
 
 <p align="center">
+  <img alt="GitHub License" src="https://img.shields.io/github/license/wangyewei/vitepress-theme-snow" />
+  <img alt="GitHub Actions Workflow Status" src="https://img.shields.io/github/actions/workflow/status/wangyewei/vitepress-theme-yev/.github%2Fworkflows%2Fci.yaml" />
+</p>
+
+<p align="center">
   <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white"/>
 </p>
 <p align="center"><a href="https://yev.wang">yev.wang</a></p>
@@ -52,7 +57,8 @@
 了解更多请访问 [文档](https://github.com/wangyewei/vitepress-theme-snow/blob/main/DOCUMENTATION.md)。
 
 示例：
- - https://github.com/wangyewei/yev
+
+- https://github.com/wangyewei/yev
 
 ## 短期目标
 
