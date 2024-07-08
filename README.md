@@ -50,6 +50,9 @@
 
 Know more on [Documentation](https://github.com/wangyewei/vitepress-theme-snow/blob/main/DOCUMENTATION.md).
 
+Examples:
+- https://github.com/wangyewei/yev
+
 ## Short-term Goal
 
 [What we support in comming days.](https://github.com/wangyewei/vitepress-theme-snow/blob/main/SHORT_TERM_GOAL.md)
