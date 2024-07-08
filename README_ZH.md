@@ -51,6 +51,9 @@
 
 了解更多请访问 [文档](https://github.com/wangyewei/vitepress-theme-snow/blob/main/DOCUMENTATION.md)。
 
+示例：
+ - https://github.com/wangyewei/yev
+
 ## 短期目标
 
 [即将支持的功能。](https://github.com/wangyewei/vitepress-theme-snow/blob/main/SHORT_TERM_GOAL.md)
