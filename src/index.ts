@@ -14,3 +14,5 @@ export default {
 } satisfies Theme
 
 export * from './composables/defineTheme'
+
+export { Layout }
