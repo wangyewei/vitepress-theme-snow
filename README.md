@@ -48,11 +48,11 @@
 
 > It is recommended that you have prior knowledge of [VitePress](https://vitepress.dev/guide/getting-started).
 
-Know more on [Documentation](./DOCUMENTATION.md).
+Know more on [Documentation](https://github.com/wangyewei/vitepress-theme-snow/blob/main/DOCUMENTATION.md).
 
 ## Short-term Goal
 
-[What we support in comming days.](./SHORT_TERM_GOAL.md)
+[What we support in comming days.](https://github.com/wangyewei/vitepress-theme-snow/blob/main/SHORT_TERM_GOAL.md)
 
 ## Screen Capture
 
