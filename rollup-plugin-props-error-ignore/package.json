@@ -1,0 +1,12 @@
+{
+  "name": "rollup-plugin-props-error-ignore",
+  "version": "1.0.0",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js"
+  },
+  "keywords": ["rollup", "plugin", "vue", "tsx", "typescript"],
+  "author": "",
+  "license": "MIT",
+  "description": ""
+}

@@ -27,7 +27,7 @@ export default defineComponent({
     },
     popoverWrapperClassNames: String,
     popoverClassNames: {
-      type: String || (Array as PropType<string | string[]>)
+      type: Array as PropType<string[]>
     },
     trigger: {
       type: String as PropType<TriggerType>,
@@ -37,7 +37,7 @@ export default defineComponent({
       type: String as PropType<'fixed'>,
       default: 'fixed'
     },
-    placement: String as PropType<'bottom-start'>,
+    placement: String as PropType<'bottom-start' | 'bottom'>,
     wrapperClassNames: {
       type: String || Array
     }
@@ -113,7 +113,7 @@ export default defineComponent({
           role="note"
           class={['inline-block', wrapperClassNames]}
           {...listener.value}
-          ref={(el: HTMLDivElement) => (reference.value = el)}
+          ref={(el: any) => (reference.value = el)}
         >
           {slots.default?.()}
         </div>
@@ -134,8 +134,7 @@ export default defineComponent({
               {...listener.value}
             >
               <MotionPopover
-                tabIndex={-1}
-                role="tooltip"
+                // role="tooltip"
                 class={[
                   'rounded-xl border border-zinc-400/20 p-0 outline-none backdrop-blur-lg dark:border-zinc-500/30',
                   'bg-zinc-50/80 dark:bg-neutral-900/80',

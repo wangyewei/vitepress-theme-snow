@@ -7,7 +7,11 @@ const props = defineProps({
   text: String,
   eachDelay: Number,
   initialDelay: Number,
-  className: String
+  className: String,
+
+  foo: {
+    type: String || Array
+  }
 })
 const {
   text,

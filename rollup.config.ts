@@ -6,12 +6,11 @@ import commonjs from '@rollup/plugin-commonjs'
 import nodeResolves from '@rollup/plugin-node-resolve'
 import esbuild from 'rollup-plugin-esbuild'
 import json from '@rollup/plugin-json'
-// @ts-ignore
 import vue from 'rollup-plugin-vue'
 import jsxUnPlugin from 'unplugin-vue-jsx/rollup'
 import inject from '@rollup/plugin-inject'
-import ts from 'rollup-plugin-typescript2'
 import dts from 'rollup-plugin-dts'
+import propsErrorIgnore from './rollup-plugin-props-error-ignore'
 
 const ROOT = fileURLToPath(import.meta.url)
 const r = (p: string) => resolve(ROOT, '..', p)
@@ -27,12 +26,7 @@ const plugins = [
   json(),
   vue(),
   inject({ h: ['vue', 'h'] }),
-  ts({
-    abortOnError: false,
-    useTsconfigDeclarationDir: true,
-    tsconfig: './tsconfig.rollup.json',
-    check: false
-  })
+  propsErrorIgnore()
 ]
 
 const themeBuild: RollupOptions = {

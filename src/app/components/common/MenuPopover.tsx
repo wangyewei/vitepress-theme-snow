@@ -15,8 +15,6 @@ export default defineComponent({
     return () => (
       <FloatPopover
         strategy="fixed"
-        headless
-        offset={10}
         placement="bottom"
         popoverWrapperClassNames="z-[19] relative"
         popoverClassNames={[

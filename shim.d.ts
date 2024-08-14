@@ -1,13 +1,13 @@
-import { h } from 'vue'
+import { DefineComponent, VNode, VNodeProps } from 'vue'
+
 declare global {
   namespace JSX {
-    // tslint:disable no-empty-interface
-    interface Element extends VNode {}
-    // tslint:disable no-empty-interface
-    interface ElementClass extends Vue {}
+    interface Element extends HTMLElement {}
+    interface ElementClass extends DefineComponent<{}, {}, any> {}
     interface IntrinsicElements {
       [elem: string]: any
     }
   }
-  const h: typeof h
 }
+
+declare function h(type: any, props?: VNodeProps | null, children?: any): VNode

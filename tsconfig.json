@@ -7,7 +7,7 @@
     "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
-      "vitepress-theme-yev": ["src/index.ts"]
+      "@/*": ["packages/*"]
     },
     "resolveJsonModule": true,
     "allowJs": true,
@@ -20,13 +20,13 @@
     "verbatimModuleSyntax": false,
     "noImplicitAny": true,
     "declaration": true,
-    "types": ["vite/client"]
+    "types": ["vite/client"],
+    "declarationDir": "types-temp"
   },
-
   "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
+    "packages/**/*.ts",
+    "packages/**/*.tsx",
+    "packages/**/*.vue",
     "*.d.ts",
     "./shim.d.ts"
   ],

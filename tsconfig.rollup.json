@@ -1,6 +1,27 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
+    "target": "esnext",
+    "lib": ["ESNext", "DOM"],
+    "jsx": "preserve",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "vitepress-theme-yev": ["src/index.ts"]
+    },
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "outDir": "dist",
+    "esModuleInterop": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "skipLibCheck": true,
+    "jsxImportSource": "vue",
+    "verbatimModuleSyntax": false,
+    "noImplicitAny": true,
+    "declaration": true,
+    "types": ["vite/client"],
     "declarationDir": "types-temp"
   }
 }
