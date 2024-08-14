@@ -38,11 +38,12 @@
     "dev:tailwind": "npx tailwindcss -i ./src/styles/tailwind.css -o ./src/styles/virtual-tailwind.css --watch",
     "build:tailwind": "npx tailwindcss -i ./src/styles/tailwind.css -o ./src/styles/virtual-tailwind.css",
     "build:css": "pnpm run build:tailwind && esno ./scripts/build-css",
-    "build:prepare": "rimraf dist && tsc --emitDeclarationOnly --declaration --outDir types-temp",
+    "build:prepare": "rimraf dist && pnpm run build:clean-cache && tsc --emitDeclarationOnly --declaration --outDir types-temp",
     "build:theme": "rollup --config rollup.config.ts --configPlugin esbuild",
     "build:clean-cache": "rimraf types-temp",
     "build": "run-s build:prepare build:theme build:css build:clean-cache",
     "build:theme-only": "run-s build:prepare build:theme build:clean-cache",
+    "build-by-tsup": "tsup src/index.ts --dts",
     "release": "bumpp package.json --commit --push --tag"
   },
   "devDependencies": {
@@ -77,7 +78,8 @@
     "rollup-plugin-vue": "^6.0.0",
     "tailwindcss": "^3.4.3",
     "typescript": "^5.4.5",
-    "unplugin-vue-jsx": "^0.4.0"
+    "unplugin-vue-jsx": "^0.4.0",
+    "vite": "^5.2.11"
   },
   "dependencies": {
     "@allindevelopers/vue-floating-ui": "^1.1.1",

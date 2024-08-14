@@ -1,4 +1,4 @@
-import { DefineComponent, VNode, VNodeProps } from 'vue'
+import { DefineComponent, VNode, VNodeProps, h } from 'vue'
 
 declare global {
   namespace JSX {
@@ -8,6 +8,8 @@ declare global {
       [elem: string]: any
     }
   }
+
+  const h: typeof h
 }
 
 declare function h(type: any, props?: VNodeProps | null, children?: any): VNode

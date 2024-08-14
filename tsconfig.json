@@ -7,7 +7,8 @@
     "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["packages/*"]
+      "@/*": ["src/*"],
+      "vitepress-theme-yev": ["./src/index.ts"]
     },
     "resolveJsonModule": true,
     "allowJs": true,
@@ -24,11 +25,12 @@
     "declarationDir": "types-temp"
   },
   "include": [
-    "packages/**/*.ts",
-    "packages/**/*.tsx",
-    "packages/**/*.vue",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
     "*.d.ts",
-    "./shim.d.ts"
+    "./shim.d.ts",
+    "./types/vue-shim.d.ts"
   ],
   "exclude": ["node_modules", "dist"]
 }
