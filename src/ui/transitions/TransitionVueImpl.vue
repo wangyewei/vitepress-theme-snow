@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { Transition, withDefaults, ref, type HTMLAttributes } from 'vue'
+import { Transition, ref, type HTMLAttributes } from 'vue'
 import { useMotions, type Variant } from '@vueuse/motion'
 import { microReboundPreset } from '../../constants/spring'
 const motions = useMotions()

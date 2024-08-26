@@ -13,3 +13,8 @@ declare global {
 }
 
 declare function h(type: any, props?: VNodeProps | null, children?: any): VNode
+
+declare module '@siteData' {
+  const data: any
+  export default data
+}
