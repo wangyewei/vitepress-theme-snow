@@ -59,7 +59,7 @@
     "@types/pngjs": "^6.0.5",
     "@vue/babel-helper-vue-jsx-merge-props": "^1.4.0",
     "@vue/babel-plugin-jsx": "^1.2.2",
-    "@vue/tsconfig": "^0.5.1",
+    "@vue/tsconfig": "^0.6.0",
     "autoprefixer": "^10.4.19",
     "bumpp": "^9.4.1",
     "daisyui": "^4.11.1",
