@@ -86,7 +86,7 @@
     "@allindevelopers/vue-floating-ui": "^1.1.1",
     "@floating-ui/vue": "^1.0.6",
     "@tailwindcss/typography": "^0.5.13",
-    "@vueuse/motion": "^2.1.0",
+    "@vueuse/motion": "^3.0.3",
     "chroma-js": "^3.0.0",
     "colorjs.io": "^0.5.0",
     "hero-motion": "^0.5.2",
