@@ -62,7 +62,7 @@
     "@vue/tsconfig": "^0.7.0",
     "autoprefixer": "^10.4.19",
     "bumpp": "^9.4.1",
-    "daisyui": "^4.11.1",
+    "daisyui": "^5.0.22",
     "esno": "^4.7.0",
     "fast-glob": "^3.3.2",
     "fs-extra": "^11.2.0",
